@@ -1,8 +1,23 @@
-body {
-  padding: 50px;
+body, html {
+  height: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.background-image {
+  /* Background Image */
+  background-image: url("../images/wallpaper1.png");
 
-a {
-  color: #00B7FF;
+  /* Full Height */
+  height: 100%;
+
+  /* Center and scale image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background {
+  background-color: #082767;
+  background-size: cover;
+
+  height: 100%;
 }
