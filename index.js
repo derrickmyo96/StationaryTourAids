@@ -17,7 +17,7 @@ router.get('/mobile-registration', function(req, res){
 });
 
 router.post('/welcome-page', function(req, res){
-    res.sendFile(path.join(__dirname + '/view/scan.html'));
+    res.sendFile(path.join(__dirname + '/view/selection.html'));
 });
 router.post('/ipad-registration', function(req, res){
     res.sendFile(path.join(__dirname + '/view/registration.html'));
