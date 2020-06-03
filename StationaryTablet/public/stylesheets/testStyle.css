@@ -1,0 +1,54 @@
+body, html {
+    height: 100%;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .main-page-background {
+    /* Background Image */
+    background-image: url("../images/wallpaper1.png");
+  
+    /* Full Height */
+    height: 100%;
+  
+    /* Center and scale image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .background {
+    background-color: #082767;
+    background-size: cover;
+  
+    height: 100%;
+  }
+  
+  .navbar {
+    margin-bottom: 10;
+    background-color: #082767 !important;
+    z-index: 9999;
+    border: 0;
+    font-size:15px !important;
+    border-radius: 0;
+  }
+  
+  .navbar img{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .navbar-brand{
+    font-size: 50pt;
+  }
+  
+  .navbar li a, .navbar, .navbar-brand{
+    color: #fff !important;
+    font-size: 15pt !important;
+  }
+  
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #000 !important;
+    background-color: orange !important;
+  }
+  
+  
+  
