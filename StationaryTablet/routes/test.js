@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/krislab', function(req, res, next) {
-  res.render('krislab', { title: 'KrisLab Employee Site' });
+router.get('/test', function(req, res, next) {
+  res.render('test', { title: 'Test' });
 });
 
 module.exports = router;
