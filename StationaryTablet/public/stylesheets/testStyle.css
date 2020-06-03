@@ -5,7 +5,7 @@ body, html {
   .main-page-background {
     /* Background Image */
     background-image: url("../images/wallpaper(main).jpg");
-  
+    background-color: #082767;
     /* Full Height */
     height: 100%;
   
@@ -23,7 +23,8 @@ body, html {
   
   .navbar {
     background-color: #082767 !important;
-    z-index: 9999;
+    background-image: none;
+    z-index: 9999 ;
     border: 0;
     font-size:15px !important;
     border-radius: 0;
@@ -40,9 +41,20 @@ body, html {
   }
   
   .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #000 !important;
+    color: #082767 !important;
+    text-decoration: underline;
     background-color: orange !important;
   }
+
+  .navbar-nav li{
+    padding: 10px;
+  }
   
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url( 
+      "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg%27%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+
   
   
