@@ -9,7 +9,7 @@ var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
 var krislabRouter = require('./routes/krislab');
 //  Testing purposes
-var testRouter = require('./routes/test');
+var main1Router = require('./routes/main1');
 
 var app = express();
 
@@ -23,12 +23,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', mainRouter);
+app.get('/', main1Router);
 app.get('/registerTablet', registerTabletRouter);
 app.get('/scanQR', scanQRRouter);
 app.get('/krislab', krislabRouter);
-//  Testing purposes
-app.get('/test', testRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
