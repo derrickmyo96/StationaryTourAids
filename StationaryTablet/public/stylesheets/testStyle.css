@@ -4,26 +4,24 @@ body, html {
   }
   .main-page-background {
     /* Background Image */
-    background-image: url("../images/wallpaper1.png");
+    background-image: url("../images/wallpaper(main).jpg");
   
     /* Full Height */
     height: 100%;
   
     /* Center and scale image */
-    background-position: center;
+    
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
   
   .background {
     background-color: #082767;
     background-size: cover;
-  
     height: 100%;
   }
   
   .navbar {
-    margin-bottom: 10;
     background-color: #082767 !important;
     z-index: 9999;
     border: 0;
@@ -32,12 +30,8 @@ body, html {
   }
   
   .navbar img{
-    width: 30px;
-    height: 30px;
-  }
-  
-  .navbar-brand{
-    font-size: 50pt;
+    width: 200px;
+    height: 50px;
   }
   
   .navbar li a, .navbar, .navbar-brand{
