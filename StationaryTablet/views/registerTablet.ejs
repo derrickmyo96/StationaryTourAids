@@ -11,31 +11,62 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+    <head>
+        <!--remove navbar-dark from nav class if everything works   -->  
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img class="testimage" src="/images/sglogo(main).png">
+                </a>
+                
+                <!-- Dropdown button for small size screen-->
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--If scrollable then put video tab for navbar-->
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-sm-0">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="/registerTablet">Register for iPad</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/scanQR">Download JiAR</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </head>
+
     <body>
-      <!--remove navbar-dark from nav class if everything works   -->  
-      <nav class="navbar navbar-expand-lg">
-          <div class="container">
-              <a class="navbar-brand" href="/">
-                  <img class="testimage" src="/images/sglogo(main).png">
-              </a>
-              
-              <!-- Dropdown button for small size screen-->
-              <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-              </button>
-              <!--If scrollable then put video tab for navbar-->
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                  <ul class="navbar-nav mr-auto mt-2 mt-sm-0">
-                      <li class="nav-item active">
-                      <a class="nav-link" href="/registerTablet">Register for iPad</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/scanQR">Download JiAR</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-      <div class="background"> </div>
+      <div class="background">
+          <h1>Welcome to your first step in the JiAR experience!</h1>
+          <h4>Fill in your details to requst access to iPads from the nearby docking station</h4>
+        <div class="form-background">
+            <form>
+                <div class="form-group">
+                    <label for="borrowerName">Name:</label>
+                    <input type="text" class="form-control" id="borrowerName">
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number:</label>
+                    <input type="tel" class="form-control" id="contactNumber">
+                </div>
+                <div class="form-group">
+                    <label for="borrowerId">NRIC/Passport No:</label>
+                    <input type="text" class="form-control" id="borrowerId">
+                </div>
+                <div class="form-group">
+                    <p>Number of iPads:</p>
+                    <select name="ipads" class="custom-select">
+                        <option selected>1</option>
+                        <option value="1">2</option>
+                        <option value="2">3</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Request</button>
+            </form>
+        </div>
+      </div>
     </body>
 </html>
