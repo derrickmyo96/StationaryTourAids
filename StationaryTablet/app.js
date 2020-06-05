@@ -7,9 +7,12 @@ var logger = require('morgan');
 var mainRouter = require('./routes/main');
 var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
-var krislabRouter = require('./routes/krislab');
 //  Testing purposes
 var main1Router = require('./routes/main1');
+
+//  Krislab Employee site routers
+var krislabLoginRouter = require('./routes/krislabLogin');
+var krislabRegisterRouter = require('./routes/krislabRegister');
 
 var app = express();
 
@@ -26,7 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', main1Router);
 app.get('/registerTablet', registerTabletRouter);
 app.get('/scanQR', scanQRRouter);
-app.get('/krislab', krislabRouter);
+
+//  Krislab Employee site views
+app.get('/krislabLogin', krislabLoginRouter);
+app.get('/krislabRegister', krislabRegisterRouter);
 
 
 // catch 404 and forward to error handler
