@@ -6,4 +6,8 @@ router.get('/krislabLogin', function(req, res, next) {
   res.render('krislabLogin', { title: 'KrisLab Employee Site' });
 });
 
+router.post('/krislabLogin', function(req, res, next) {
+  res.render('krislabRegister');
+});
+
 module.exports = router;
