@@ -1,6 +1,6 @@
 body, html {
     height: 100%;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
   }
   .main-page-background {
     /* Background Image */
@@ -16,9 +16,33 @@ body, html {
   }
   
   .background {
-    background-color: #082767;
+    background-color: #153c8a;
     background-size: cover;
     height: 100%;
+  }
+
+  h1, h4 {
+    color: #fff;
+    text-align:center;
+    padding: 20px;
+  }
+
+  form {
+    /* Center the form on the page */
+    margin: 0 auto;
+    width: 700px;
+  }
+
+  .form-background {
+    background-color: #fff;
+    width: 800px;
+    padding: 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    margin-left: -400px;
+
   }
   
   .navbar {
@@ -41,9 +65,8 @@ body, html {
   }
   
   .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #082767 !important;
+    color: #fff !important;
     text-decoration: underline;
-    background-color: orange !important;
   }
 
   .navbar-nav li{
