@@ -14,6 +14,11 @@ $ sudo npm install express-generator -g
 $ sudo npm install nodemon -g
 ```
 
+### Install nodemailer package for sending OTP via email ###
+```shell_session
+$ npm install --save nodemailer
+```
+
 ### Move directory where we want our code to reside ###
 ```shell_session
 $ expresss --view=ejs <directory_name>
