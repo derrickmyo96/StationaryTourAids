@@ -6,15 +6,27 @@ var logger = require('morgan');
 //  Nodemailer to send email for OTP
 var nodemailer = require('nodemailer');
 
+//  Choose one of the mainRouter for main page
 var mainRouter = require('./routes/main');
+var main1Router = require('./routes/main1');
 var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
+
 //  Testing purposes
-var main1Router = require('./routes/main1');
+var testRouter = require('./routes/test')
 
 //  Krislab Employee site routers
 var krislabLoginRouter = require('./routes/krislabLogin');
 var krislabRegisterRouter = require('./routes/krislabRegister');
+
+//  Transport service for nodemailer to send emails
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'jiarapplication@gmail.com',
+    pass: 'HkyJfq2659TD'
+  }
+});
 
 var app = express();
 
@@ -35,6 +47,9 @@ app.get('/scanQR', scanQRRouter);
 //  Krislab Employee site views
 app.get('/krislabLogin', krislabLoginRouter);
 app.get('/krislabRegister', krislabRegisterRouter);
+
+//  Testing purposes
+app.get('/test', testRouter);
 
 
 // catch 404 and forward to error handler
