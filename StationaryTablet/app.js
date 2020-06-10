@@ -35,7 +35,7 @@ app.get('/', main1Router);
 app.use('/registerTablet', registerTabletRouter);
 app.use('/sendOTP', sendOTPRouter);
 
-app.get('/scanQR', scanQRRouter);
+app.use('/scanQR', scanQRRouter);
 
 //  Krislab Employee site views
 app.get('/krislabLogin', krislabLoginRouter);
