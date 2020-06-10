@@ -41,6 +41,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', main1Router);
 app.get('/registerTablet', registerTabletRouter);
+
+app.post('/submit', (req,res) => {
+  console.log(req.body)
+  res.json(req.body)
+});
+
 app.get('/scanQR', scanQRRouter);
 
 //  Krislab Employee site views
