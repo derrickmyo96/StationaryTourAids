@@ -10,6 +10,7 @@ var mainRouter = require('./routes/main');
 var main1Router = require('./routes/main1');
 var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
+var sendOTPRouter = require('./routes/sendOTP');
 
 //  Testing purposes
 var testRouter = require('./routes/test')
@@ -17,15 +18,6 @@ var testRouter = require('./routes/test')
 //  Krislab Employee site routers
 var krislabLoginRouter = require('./routes/krislabLogin');
 var krislabRegisterRouter = require('./routes/krislabRegister');
-
-//  Transport service for nodemailer to send emails
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'jiarapplication@gmail.com',
-    pass: 'HkyJfq2659TD'
-  }
-});
 
 var app = express();
 
@@ -41,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', main1Router);
 app.use('/registerTablet', registerTabletRouter);
+app.use('/sendOTP', sendOTPRouter);
 
 app.get('/scanQR', scanQRRouter);
 
