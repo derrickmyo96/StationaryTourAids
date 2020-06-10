@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', main1Router);
 app.use('/registerTablet', registerTabletRouter);
 
-app.get('/scanQR', scanQRRouter);
+app.use('/scanQR', scanQRRouter);
 
 //  Krislab Employee site views
 app.get('/krislabLogin', krislabLoginRouter);
