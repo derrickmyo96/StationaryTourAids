@@ -7,14 +7,13 @@ router.get('/', function(req, res, next) {
   res.render('registerTablet', { title: 'Register for iPad' });
 });
 
-router.post('/submit', function(req, res){
-  // console.log(req.body);
-  // res.render('registerTablet',{ title: 'Register for iPad' } );
-  // res.redirect('/registerTablet')
+router.post('/submit' , function(req, res){
+
   var name = req.body.lastName;
   var email = req.body.email;
+  var contact = req.body.contactNumber;
   var emailContent =  'Welcome ' + name + ',\n' + 'Please use the following OTP to unlock the iPad assigned to you.'
-  res.redirect('/sendOTP');
+  res.redirect('/verifyOTP');
 
   //  Transport service for nodemailer to send emails
   var transporter = nodemailer.createTransport({
@@ -34,12 +33,12 @@ router.post('/submit', function(req, res){
 
   transporter.sendMail(emailOptions, (err, info) => {
     if (err) {
-      console.log(err);
+      console.log(err, 'Email is not sent.');
       res.redirect('/registerTablet');
     } 
     else {
       console.log('Email sent ' + info);
-      res.redirect('/sendOTP');
+      res.redirect('/verifyrOTP');
     }
   });
 });

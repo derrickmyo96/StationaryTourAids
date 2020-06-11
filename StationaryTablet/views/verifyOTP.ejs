@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href='/stylesheets/testStyle.css'/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <body>
+        <div class="background">
+            <div class="otp-background">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <input class="col-sm-3" id="OTPBox1" type="number" maxlength="1" onkeyup="onKeyUpEvent(1, event)" onfocus="onFocusEvent(1)"/>
+                            <input class="col-sm-3" id="OTPBox2" type="number" maxlength="1" onkeyup="onKeyUpEvent(2, event)" onfocus="onFocusEvent(2)"/>
+                            <input class="col-sm-3" id="OTPBox3" type="number" maxlength="1" onkeyup="onKeyUpEvent(3, event)" onfocus="onFocusEvent(3)"/>
+                            <input class="col-sm-3" id="OTPBox4" type="number" maxlength="1" onkeyup="onKeyUpEvent(4, event)" onfocus="onFocusEvent(4)"/>
+                            <input class="col-sm-3" id="OTPBox5" type="number" maxlength="1" onkeyup="onKeyUpEvent(5, event)" onfocus="onFocusEvent(5)"/>
+                            <input class="col-sm-3" id="OTPBox6" type="number" maxlength="1" onkeyup="onKeyUpEvent(6, event)" onfocus="onFocusEvent(6)"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            function getOTPBoxElement(index) {
+                return document.getElementById('OTPBox', + index);
+            }
+    
+            function onKeyUpEvent(index, event) {
+                var eventCode = event.which || event.keyCode;
+                if (getOTPBoxElement(index).value.length === 1) {
+                    if (index !== 6) {
+                        getOTPBoxElement(index + 1).focus();
+                    } else {
+                        getOTPBoxElement(index).blur();
+                        console.log('OTP Entered: ');
+                    }
+                }
+                if (eventCode === 8 && index !== 6) {
+                    getOTPBoxElement(index - 1).focus();
+                }
+            }
+    
+            function onFocusEvent(index) {
+                for (i=1; i<index; i++) {
+                    var currentElement = getOTPBoxElement(i);
+                    if (!currentElement.value) {
+                        currentElement.focus();
+                        break;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

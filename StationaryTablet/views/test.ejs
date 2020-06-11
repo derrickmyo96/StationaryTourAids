@@ -11,28 +11,96 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+    <head>
+        <!--remove navbar-dark from nav class if everything works   -->  
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img class="testimage" src="/images/sglogo(main).png">
+                </a>
+                
+                <!-- Dropdown button for small size screen-->
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--If scrollable then put video tab for navbar-->
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-sm-0">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="/registerTablet">Register for iPad</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/scanQR">Download JiAR</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </head>
+
     <body>
+      <div class="background">
+          <h1>Welcome to your first step in the JiAR experience!</h1>
+          <h4>Fill in your details to requst access to iPads from the nearby docking station</h4>
         <div class="form-background">
-            <form>
+            <form method="POST" action="/registerTablet/submit">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="borrowerFirstName">First Name:</label>
-                        <input type="text" class="form-control" id="borrowerFirstName" required>
-                        <div class="invalid-feedback">First Name is required!</div>
+                        <input type="text" name="firstName" class="form-control" id="borrowerFirstName" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="borrowerLastName">Last Name:</label>
-                        <input type="text" class="form-control" id="borrowerLastName" required>
-                        <div class="invalid-feedback">Last Name is required!</div>
+                        <input type="text" name="lastName" class="form-control" id="borrowerLastName" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="borrowerEmail">Email Address:</label>
-                    <input type="email" class="form-control" id="borrowerEmail" placeholder="name@example.com" required>
-                    <div class="invalid-feedback">Email Addressr is required!</div>
+                    <label for="contactNumber">Contact Number:</label>
+                    <input type="text" name="contactNumber" class="form-control" id="contactNumber" aria-describeby="contactHelp" required>
+                    <medium id="contactHelp" class="form-text text-muted">If your contact number is an international number, please include the country code, eg. +65</small>
                 </div>
-                <button class="btn btn-primary" type="submit" id="submitButton" formaction="/requestOTP">Request</button>
+                <div class="form-group">
+                    <label for="borrowerEmail">Email Address:</label>
+                    <input type="email" name="email" class="form-control" id="borrowerEmail" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <p>Number of iPads:</p>
+                    <select name="numberOfIpads" class="custom-select">
+                        <option selected>1</option>
+                        <option value="1">2</option>
+                        <option value="2">3</option>
+                    </select>
+                </div>
+
+                <!-- Terms and Conditions Modal -->
+                <!-- Create link to open Terms and Conditions Modal Popup-->
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="termsAndConditionsModal" required>
+                    <label class="form-check-label" for="termsAndConditionsModal">
+                        <a href="#" data-toggle="modal" data-target="#termsAndConditions">Terms and Conditions</a>
+                    </label>
+                </div>
+                
+                <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="termsAndConditonsModalTitle" aria-hidden="true" id="termsAndConditions">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="termsAndConditionsTitle">Terms and Conditions</h5>
+                            </div>
+                            <!-- TODO: Add Terms and Conditions -->
+                            <div class="modal-body">
+                                <p>Place terms and conditions here.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <button type="submit" class="btn btn-primary">Request</button>
+                </div>    
             </form>
         </div>
+      </div>
     </body>
 </html>

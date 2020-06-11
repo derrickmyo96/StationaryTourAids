@@ -3,14 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var nodemailer = require('nodemailer')
 
 //  Choose one of the mainRouter for main page
 var mainRouter = require('./routes/main');
 var main1Router = require('./routes/main1');
 var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
-var sendOTPRouter = require('./routes/sendOTP');
+var verifyOTPRouter = require('./routes/verifyOTP');
 
 //  Testing purposes
 var testRouter = require('./routes/test')
@@ -33,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', main1Router);
 app.use('/registerTablet', registerTabletRouter);
-app.use('/sendOTP', sendOTPRouter);
+app.use('/verifyOTP', verifyOTPRouter);
 
 app.use('/scanQR', scanQRRouter);
 
