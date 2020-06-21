@@ -27,22 +27,28 @@ body, html {
     padding: 20px;
   }
 
-  form {
-    /* Center the form on the page */
-    margin: 0 auto;
-    width: 700px;
+  .card-register {
+    border: 10;
+    border-radius: 10rem;
   }
 
-  .form-background {
-    background-color: #fff;
-    width: 800px;
-    padding: 30px;
-    border-radius: 5px;
-    margin-top: 20px;
-    position: absolute;
-    left: 50%;
-    margin-left: -400px;
+  .card-register .card-body {
+    padding: 2rem;
   }
+
+  .form-register {
+    width: 100%;
+  }
+
+  .form-register .btn {
+    font-weight: bold;
+  }
+
+  .form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
 
   input[type=number] {
     height: 60px;
@@ -106,6 +112,7 @@ body, html {
     -moz-appearance: textfield;
   }
 
+  
 
 
   
