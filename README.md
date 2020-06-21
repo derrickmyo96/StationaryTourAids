@@ -19,6 +19,16 @@ $ sudo npm install nodemon -g
 $ npm install --save nodemailer
 ```
 
+### Install jwt for email verification  ###
+```shell_session
+$ npm i jsonwebtoken
+```
+
+### Install dotenv to load environment modules from .env file into process.env  ###
+```shell_session
+$ npm i dotenv
+```
+
 ### Move directory where we want our code to reside ###
 ```shell_session
 $ expresss --view=ejs <directory_name>
