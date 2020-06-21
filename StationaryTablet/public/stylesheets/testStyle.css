@@ -44,6 +44,24 @@ body, html {
     margin-left: -400px;
   }
 
+  .otp-background {
+    background-color: #fff;
+    width: 380px;
+    padding: 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+    position: absolute;
+    left: 35%;
+  }
+
+  input[type=number] {
+    height: 60px;
+    width: 50px;
+    font-size: 25px;
+    text-align: center;
+    border: 1px solid #000000;
+  }
+
   .modal {
     z-index: 10000 !important;
   }
@@ -81,11 +99,24 @@ body, html {
     padding: 10px;
   }
   
+  /*  To overwrite Bootstrap4 dark toggler icon */ 
   .custom-toggler .navbar-toggler-icon {
     background-image: url( 
       "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg%27%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   }
+
+  /*  To remove spin button for type=number */
+  /*  For Chrome, Safari, Edge and Opera Browsers */
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
   
+  /*  For Firefox Browsers  */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+
 
   
   

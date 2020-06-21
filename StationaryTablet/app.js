@@ -3,29 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var nodemailer = require('nodemailer')
+require('dotenv').config();
 
 //  Choose one of the mainRouter for main page
 var mainRouter = require('./routes/main');
 var main1Router = require('./routes/main1');
 var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
+var verifyRouter = require('./routes/verify');
 
 //  Testing purposes
 var testRouter = require('./routes/test')
-
-//  Krislab Employee site routers
-var krislabLoginRouter = require('./routes/krislabLogin');
-var krislabRegisterRouter = require('./routes/krislabRegister');
-
-//  Transport service for nodemailer to send emails
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'jiarapplication@gmail.com',
-    pass: 'HkyJfq2659TD'
-  }
-});
 
 var app = express();
 
@@ -41,16 +29,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', main1Router);
 app.use('/registerTablet', registerTabletRouter);
-
 app.use('/scanQR', scanQRRouter);
+app.use('/verify', verifyRouter);
 
-//  Krislab Employee site views
-app.get('/krislabLogin', krislabLoginRouter);
-app.get('/krislabRegister', krislabRegisterRouter);
+//  Global variables
+global.Name = "";
+global.contactNumber = "";
+global.emailAddress = "";
 
 //  Testing purposes
 app.get('/test', testRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
