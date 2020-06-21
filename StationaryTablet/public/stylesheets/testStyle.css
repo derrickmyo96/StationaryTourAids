@@ -44,16 +44,6 @@ body, html {
     margin-left: -400px;
   }
 
-  .otp-background {
-    background-color: #fff;
-    width: 380px;
-    padding: 30px;
-    border-radius: 5px;
-    margin-top: 20px;
-    position: absolute;
-    left: 35%;
-  }
-
   input[type=number] {
     height: 60px;
     width: 50px;
