@@ -3,6 +3,7 @@ Stationary Tablet Frontend Development
 
 # Prequisites for development
 ### Install nodejs and npm ###
+https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 ### Install Express generator package globally (g stand for global in command): ###
 ```shell_session
