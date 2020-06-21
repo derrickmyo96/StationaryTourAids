@@ -47,14 +47,16 @@
                         <div class="card card-register my-5 w-100">
                             <div class="card-body">
                                 <form class="form-register" method="POST" action="/registerTablet/submit">
-                                    <div class="form-label-group">
-                                        <label for="borrowerFirstName">First Name:</label>
-                                        <input type="text" name="firstName" class="form-control" id="borrowerFirstName" required>
-                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-label-group col-lg-6">
+                                            <label for="borrowerFirstName">First Name:</label>
+                                            <input type="text" name="firstName" class="form-control" id="borrowerFirstName" required>
+                                        </div>
 
-                                    <div class="form-label-group">
-                                        <label for="borrowerLastName">Last Name:</label>
-                                        <input type="text" name="lastName" class="form-control" id="borrowerLastName" required>
+                                        <div class="form-label-group col-lg-6">
+                                            <label for="borrowerLastName">Last Name:</label>
+                                            <input type="text" name="lastName" class="form-control" id="borrowerLastName" required>
+                                        </div>
                                     </div>
 
                                     <div class="form-label-group">
@@ -68,13 +70,34 @@
                                         <input type="email" name="email" class="form-control" id="borrowerEmail" placeholder="name@example.com" required>
                                     </div>
 
-                                    <div class="form-label-group">
-                                        <p>Number of iPads:</p>
-                                        <select name="numberOfIpads" class="custom-select">
-                                            <option selected>1</option>
-                                            <option value="1">2</option>
-                                            <option value="2">3</option>
-                                        </select>
+                                    <div class="form-row">
+                                        <div class="form-label-group col-lg-6">
+                                            <label for="visitorIdentity">Are you a Singapore Airlines (SIA) employee?</label>
+                                            <div class="form-fluid">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked>
+                                                    <label class="custom-control-label" for="customRadioInline1">Yes</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                                    <label class="custom-control-label" for="customRadioInline2">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-label-group col-lg-6">
+                                            <label for="ipadQuantity">Number of iPads</label>
+                                            <select name="numberOfIpads" class="custom-select">
+                                                <option selected>1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="custom-control custom-chechbox mb-3">
+                                        <input type="checkbox" class="form-check-input" id="termsAndConditionsModal">
+                                        <label class="form-check-label" for="termsAndConditionsModal">I would like to receive marketing emails from KrisLab.</label>
                                     </div>
 
                                     <div class="custom-control custom-chechbox mb-3">

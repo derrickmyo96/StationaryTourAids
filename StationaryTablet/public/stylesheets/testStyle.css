@@ -29,7 +29,7 @@ body, html {
 
   .card-register {
     border: 10;
-    border-radius: 10rem;
+    border-radius: 1rem;
   }
 
   .card-register .card-body {
@@ -48,6 +48,8 @@ body, html {
     position: relative;
     margin-bottom: 1rem;
   }
+
+
 
 
   input[type=number] {
