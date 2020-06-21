@@ -9,14 +9,9 @@ var mainRouter = require('./routes/main');
 var main1Router = require('./routes/main1');
 var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
-var verifyOTPRouter = require('./routes/verifyOTP');
 
 //  Testing purposes
 var testRouter = require('./routes/test')
-
-//  Krislab Employee site routers
-var krislabLoginRouter = require('./routes/krislabLogin');
-var krislabRegisterRouter = require('./routes/krislabRegister');
 
 var app = express();
 
@@ -32,17 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', main1Router);
 app.use('/registerTablet', registerTabletRouter);
-app.use('/verifyOTP', verifyOTPRouter);
-
 app.use('/scanQR', scanQRRouter);
-
-//  Krislab Employee site views
-app.get('/krislabLogin', krislabLoginRouter);
-app.get('/krislabRegister', krislabRegisterRouter);
 
 //  Testing purposes
 app.get('/test', testRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
