@@ -9,12 +9,13 @@ Stationary Tablet Frontend Development
 $ sudo npm install express-generator -g
 ```
 
-### To run node server, install the nodemon package globally ###
+### To run node server, install the nodemon package globally (Optional) ###
+### Can run via npm start as well.
 ```shell_session
 $ sudo npm install nodemon -g
 ```
 
-### Install nodemailer package for sending OTP via email ###
+### Install nodemailer package for sending verification link via email ###
 ```shell_session
 $ npm install --save nodemailer
 ```
