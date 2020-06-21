@@ -3,12 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
 
 //  Choose one of the mainRouter for main page
 var mainRouter = require('./routes/main');
 var main1Router = require('./routes/main1');
 var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
+var verifyRouter = require('./routes/verify');
 
 //  Testing purposes
 var testRouter = require('./routes/test')
@@ -28,6 +30,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', main1Router);
 app.use('/registerTablet', registerTabletRouter);
 app.use('/scanQR', scanQRRouter);
+app.use('/verify', verifyRouter);
+
+//  Global variables
+global.Name = "";
+global.contactNumber = "";
+global.emailAddress = "";
 
 //  Testing purposes
 app.get('/test', testRouter);
