@@ -46,3 +46,6 @@ $ npm install
 ```shell_session
 $ nodemon start
 ```
+
+### First development stage hosted on Heroku ###
+https://guarded-springs-79617.herokuapp.com
