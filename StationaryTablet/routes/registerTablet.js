@@ -8,13 +8,25 @@ router.get('/', function(req, res, next) {
   res.render('registerTablet', { title: 'Register for iPad' });
 });
 
+router.post('/', function(req, res, next) {
+  res.render('registerTablet', { title: 'Register for iPad' });
+});
+
 router.post('/submit', function(req, res){
 
-  global.name = req.body.lastName;
+  global.name = req.body.firstName + " " + req.body.lastName;
   global.email = req.body.email;
   global.contact = req.body.contactNumber;
   global.amountOfTablet = req.body.numberOfIpads;
   global.agreeToMarketing = req.body.agreeToMarketing;
+
+  user ={
+    name: name,
+    email:email,
+    contact:contact,
+    amountOfTablet:amountOfTablet,
+    agreeToMarketing: agreeToMarketing
+  }
 
   var emailContent =  'Welcome ' + name + ',\n' + 'Please use the following link to verify your email address that you used to register for an iPad.'
 
@@ -41,11 +53,11 @@ router.post('/submit', function(req, res){
   transporter.sendMail(emailOptions, (err, info) => {
     if (err) {
       console.log(err, 'Email is not sent.');
-      res.redirect('/registerTablet');
+      res.render('emailFail',{user:user});
     } 
     else {
       console.log('Email sent ' + info);
-      res.redirect('/registerTablet');
+      res.render('emailSent',{user:user});
     }
   });
 });
