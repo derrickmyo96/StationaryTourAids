@@ -102,6 +102,19 @@ body, html {
   .navbar-nav li{
     padding: 10px;
   }
+  .frame {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  .img-fluid {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
   
   /*  To overwrite Bootstrap4 dark toggler icon */ 
   .custom-toggler .navbar-toggler-icon {

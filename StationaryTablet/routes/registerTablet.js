@@ -17,7 +17,7 @@ router.post('/submit', function(req, res){
 
   const token = jwt.sign({name, email, contact}, process.env.JWT_TOKEN, {expiresIn: '5m'});
   // res.redirect('/verifyEmail');
-  res.redirect('/registerTablet');
+  // res.redirect('/registerTablet');
 
   //  Transport service for nodemailer to send emails
   var transporter = nodemailer.createTransport({
