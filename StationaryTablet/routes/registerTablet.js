@@ -13,11 +13,12 @@ router.post('/submit', function(req, res){
   global.name = req.body.lastName;
   global.email = req.body.email;
   global.contact = req.body.contactNumber;
+  global.amountOfTablet = req.body.numberOfIpads;
+  global.agreeToMarketing = req.body.agreeToMarketing;
+
   var emailContent =  'Welcome ' + name + ',\n' + 'Please use the following link to verify your email address that you used to register for an iPad.'
 
-  const token = jwt.sign({name, email, contact}, process.env.JWT_TOKEN, {expiresIn: '5m'});
-  // res.redirect('/verifyEmail');
-  res.redirect('/registerTablet');
+  const token = jwt.sign({name, email, contact, amountOfTablet, agreeToMarketing}, process.env.JWT_TOKEN, {expiresIn: '5m'});
 
   //  Transport service for nodemailer to send emails
   var transporter = nodemailer.createTransport({

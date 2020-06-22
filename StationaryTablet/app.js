@@ -10,6 +10,7 @@ var mainRouter = require('./routes/main');
 var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
 var verifyRouter = require('./routes/verify');
+var verifyFailRouter = require('./routes/verifyFail');
 
 //  Testing purposes
 var testRouter = require('./routes/test')
@@ -30,13 +31,14 @@ app.get('/', mainRouter);
 app.use('/registerTablet', registerTabletRouter);
 app.use('/scanQR', scanQRRouter);
 app.use('/verify', verifyRouter);
+app.use('/verifyFail', verifyFailRouter);
 
 //  Global variables
 global.name = "";
 global.contactNumber = "";
 global.emailAddress = "";
 global.amountOfTablet = 0;
-global.agreeToMarketing = false;
+global.agreeToMarketing = "";
 
 //  Testing purposes
 app.get('/test', testRouter);

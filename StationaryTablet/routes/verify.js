@@ -9,11 +9,12 @@ router.get('/', function(req, res, next) {
     if (token) {
         jwt.verify(token, process.env.JWT_TOKEN, function(err, decodedToken) {
             if (err) {
-                return res.status(400).json({error: 'Incorrect or Expired verification link.'});
+                res.render('verifyFail', { title: 'Verification Fail' });
+                // return res.status(400).json({error: 'Incorrect or Expired verification link.'});
             }
-            var {name, email, contact} = decodedToken;
+            var {name, email, contact, amountOfIpad, agreeToMarketing} = decodedToken;
             console.log("decodedToken", decodedToken);
-            res.render('main', { title: 'Register for an iPad' });
+            res.render('verifySuccess', { title: 'Verification Successful' });
         })
     };
 });
