@@ -7,7 +7,6 @@ require('dotenv').config();
 
 //  Choose one of the mainRouter for main page
 var mainRouter = require('./routes/main');
-var main1Router = require('./routes/main1');
 var registerTabletRouter = require('./routes/registerTablet');
 var scanQRRouter = require('./routes/scanQR');
 var verifyRouter = require('./routes/verify');
@@ -27,15 +26,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', main1Router);
+app.get('/', mainRouter);
 app.use('/registerTablet', registerTabletRouter);
 app.use('/scanQR', scanQRRouter);
 app.use('/verify', verifyRouter);
 
 //  Global variables
-global.Name = "";
+global.name = "";
 global.contactNumber = "";
 global.emailAddress = "";
+global.amountOfTablet = 0;
+global.agreeToMarketing = false;
 
 //  Testing purposes
 app.get('/test', testRouter);

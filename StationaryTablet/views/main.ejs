@@ -4,28 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href='/stylesheets/style.css'/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
-    <body class="main-page-background">
-      <div class="main-page-background">
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container">
-            <div class="navbar-header">
-              <img src="/images/sglogo(main).png">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <head>
+        <!--remove navbar-dark from nav class if everything works   -->  
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="">
+                    <img class="testimage" src="/images/sglogo(main).png">
+                </a>
+                
+                <!-- Dropdown button for small size screen-->
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--If scrollable then put video tab for navbar-->
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-sm-0">
+                        <li class="nav-item">
+                        <a class="nav-link" href="/registerTablet">Register for iPads</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/scanQR">Download JiAR</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="navigationBar">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">HOME</a></li>
-                <li><a href="/registerTablet">REGISTER FOR IPAD</a></li>
-                <li><a href="/scanQR">SCAN FOR MOBILE DEVICE</a></li>
-              </ul>
-            </div>
-          </div>
         </nav>
-      </div>
+        <!-- <div class="video-background-holder">
+            <div class="video-background-overlay">
+                <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                    <source src="/videos/kris3.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div> -->
+    </head>
+    <body>
+        <div class="main-page-background"> </div>
+        
     </body>
-    
 </html>

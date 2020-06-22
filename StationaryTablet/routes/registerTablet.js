@@ -44,7 +44,6 @@ router.post('/submit', function(req, res){
     } 
     else {
       console.log('Email sent ' + info);
-      // res.redirect('/verifyEmail');
       res.redirect('/registerTablet');
     }
   });

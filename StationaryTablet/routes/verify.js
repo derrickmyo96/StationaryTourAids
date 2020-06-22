@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
             }
             var {name, email, contact} = decodedToken;
             console.log("decodedToken", decodedToken);
-            res.render('main1', { title: 'Register for an iPad' });
+            res.render('main', { title: 'Register for an iPad' });
         })
     };
 });
