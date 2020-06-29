@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
                 res.render('verifyFail', { title: 'Verification Fail' });
                 // return res.status(400).json({error: 'Incorrect or Expired verification link.'});
             }
-            let {name, email, contact, amountOfIpad, agreeToMarketing} = decodedToken;
+            let {name, email, contact, amountOfIpad, agreeToMarketing, borrowID} = decodedToken;
             console.log("decodedToken", decodedToken);
             res.render('verifySuccess', { title: 'Verification Successful' });
         })

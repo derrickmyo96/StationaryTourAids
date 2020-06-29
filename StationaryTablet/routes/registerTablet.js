@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 
 //  Global variables
-let name, email, contact, amountOfTablet, agreeToMarketing;
+let name, email, contact, amountOfTablet, agreeToMarketing, borrowID;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -21,18 +21,20 @@ router.post('/submit', function(req, res){
   contact = req.body.contactNumber;
   amountOfTablet = req.body.numberOfIpads;
   agreeToMarketing = req.body.agreeToMarketing;
+  borrowID = Math.floor((Math.random() * 900000) + 99999);
 
   user ={
     name: name,
     email:email,
     contact:contact,
     amountOfTablet:amountOfTablet,
-    agreeToMarketing: agreeToMarketing
+    agreeToMarketing: agreeToMarketing,
+    borrowID: borrowID
   }
 
-  const emailContent =  'Welcome ' + name + ',\n' + 'Please use the following link to verify your email address that you used to register for an iPad.'
+  // const emailContent =  'Welcome ' + name + ',\n' + 'Please use the following link to verify your email address that you used to register for an iPad.'
 
-  const token = jwt.sign({name, email, contact, amountOfTablet, agreeToMarketing}, process.env.JWT_TOKEN, {expiresIn: '5m'});
+  const token = jwt.sign({name, email, contact, amountOfTablet, agreeToMarketing, borrowID}, process.env.JWT_TOKEN, {expiresIn: '5m'});
 
   //  Transport service for nodemailer to send emails
   const transporter = nodemailer.createTransport({
