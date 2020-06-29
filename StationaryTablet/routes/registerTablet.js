@@ -3,6 +3,9 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 var jwt = require('jsonwebtoken');
 
+//  Global variables
+var name, email, contact, amountOfTablet, agreeToMarketing;
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('registerTablet', { title: 'Register for iPad' });
@@ -14,11 +17,17 @@ router.post('/', function(req, res, next) {
 
 router.post('/submit', function(req, res){
 
-  global.name = req.body.firstName + " " + req.body.lastName;
-  global.email = req.body.email;
-  global.contact = req.body.contactNumber;
-  global.amountOfTablet = req.body.numberOfIpads;
-  global.agreeToMarketing = req.body.agreeToMarketing;
+  // global.name = req.body.firstName + " " + req.body.lastName;
+  // global.email = req.body.email;
+  // global.contact = req.body.contactNumber;
+  // global.amountOfTablet = req.body.numberOfIpads;
+  // global.agreeToMarketing = req.body.agreeToMarketing;
+
+  name = req.body.firstName + " " + req.body.lastName;
+  email = req.body.email;
+  contact = req.body.contactNumber;
+  amountOfTablet = req.body.numberOfIpads;
+  agreeToMarketing = req.body.agreeToMarketing;
 
   user ={
     name: name,

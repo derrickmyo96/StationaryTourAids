@@ -33,12 +33,12 @@ app.use('/scanQR', scanQRRouter);
 app.use('/verify', verifyRouter);
 app.use('/verifyFail', verifyFailRouter);
 
-//  Global variables
-global.name = "";
-global.contactNumber = "";
-global.emailAddress = "";
-global.amountOfTablet = 0;
-global.agreeToMarketing = "";
+// //  Global variables
+// global.name = "";
+// global.contactNumber = "";
+// global.emailAddress = "";
+// global.amountOfTablet = 0;
+// global.agreeToMarketing = "";
 
 //  Testing purposes
 app.get('/test', testRouter);
