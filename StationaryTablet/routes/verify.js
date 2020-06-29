@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var jwt = require('jsonwebtoken');
+const express = require('express');
+const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
                 res.render('verifyFail', { title: 'Verification Fail' });
                 // return res.status(400).json({error: 'Incorrect or Expired verification link.'});
             }
-            var {name, email, contact, amountOfIpad, agreeToMarketing} = decodedToken;
+            let {name, email, contact, amountOfIpad, agreeToMarketing} = decodedToken;
             console.log("decodedToken", decodedToken);
             res.render('verifySuccess', { title: 'Verification Successful' });
         })
