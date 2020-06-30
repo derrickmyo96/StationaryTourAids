@@ -10,6 +10,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Form Validation JavaScript -->
+    <script type="text/javascript">
+        (function () {
+            'use strict';
+            window.addEventListener('load', function() {
+                let form = document.getElementById('registerTablet');
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            }, false);
+        })();
+    </script>
 
     <head>
         <nav class="navbar navbar-expand-lg">
@@ -46,28 +62,31 @@
                     <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
                         <div class="card card-register my-5 w-100">
                             <div class="card-body">
-                                <form class="form-register" method="POST" action="/registerTablet/submit">
+                                <form class="form-register" method="POST" action="/registerTablet/submit" id="registerTablet" novalidate>
                                     <div class="form-row">
                                         <div class="form-label-group col-lg-6">
                                             <label for="borrowerFirstName">First Name:</label>
                                             <input type="text" name="firstName" class="form-control" id="borrowerFirstName" required>
+                                            <div class='invalid-feedback'>Please enter first name.</div>
                                         </div>
 
                                         <div class="form-label-group col-lg-6">
                                             <label for="borrowerLastName">Last Name:</label>
                                             <input type="text" name="lastName" class="form-control" id="borrowerLastName" required>
+                                            <div class='invalid-feedback'>Please enter last name.</div>
                                         </div>
                                     </div>
 
                                     <div class="form-label-group">
                                         <label for="contactNumber">Contact Number:</label>
-                                        <input type="tel" name="contactNumber" class="form-control" id="contactNumber" aria-describeby="contactHelp" required>
-                                        <medium id="contactHelp" class="form-text text-muted">If your contact number is an international number, please include the country code, eg. +65</small>
+                                        <input type="tel" pattern="\d{8}$" name="contactNumber" class="form-control" id="contactNumber" aria-describeby="contactHelp" required>
+                                        <div class='invalid-feedback'>Please enter a valid contact number.</div>
                                     </div>
 
                                     <div class="form-label-group">
                                         <label for="borrowerEmail">Email Address:</label>
                                         <input type="email" name="email" class="form-control" id="borrowerEmail" placeholder="name@example.com" required>
+                                        <div class='invalid-feedback'>Please enter a valid email address.</div>
                                     </div>
 
                                     <div class="form-row">
@@ -105,6 +124,7 @@
                                         <label class="form-check-label" for="termsAndConditionsModal">
                                             <a href="#" data-toggle="modal" data-target="#termsAndConditions">Terms and Conditions</a>
                                         </label>
+                                        <div class='invalid-feedback'>Please read the Terms and Conditions and check the box.</div>
                                     </div>
 
                                     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="termsAndConditonsModalTitle" aria-hidden="true" id="termsAndConditions">
