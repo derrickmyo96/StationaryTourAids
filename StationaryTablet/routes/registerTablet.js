@@ -5,10 +5,11 @@ const jwt = require('jsonwebtoken');
 
 //  Global variables
 let name, email, contact, amountOfTablet, agreeToMarketing, borrowID;
+let availableTablet = 3;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('registerTablet', { title: 'Register for iPad' });
+  res.render('registerTablet', { title: 'Register for iPad', availableTablet: availableTablet });
 });
 
 router.post('/', function(req, res, next) {
