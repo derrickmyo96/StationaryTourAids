@@ -66,13 +66,13 @@
                                     <div class="form-row">
                                         <div class="form-label-group col-lg-6">
                                             <label for="borrowerFirstName">First Name:</label>
-                                            <input type="text" name="firstName" class="form-control" id="borrowerFirstName" required>
+                                            <input type="text" name="firstName" pattern="[a-zA-Z]{2,12}" class="form-control" id="borrowerFirstName" required>
                                             <div class='invalid-feedback'>Please enter first name.</div>
                                         </div>
 
                                         <div class="form-label-group col-lg-6">
                                             <label for="borrowerLastName">Last Name:</label>
-                                            <input type="text" name="lastName" class="form-control" id="borrowerLastName" required>
+                                            <input type="text" name="lastName" pattern="[a-zA-Z]{2,12}" class="form-control" id="borrowerLastName" required>
                                             <div class='invalid-feedback'>Please enter last name.</div>
                                         </div>
                                     </div>

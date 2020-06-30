@@ -58,11 +58,11 @@ router.post('/submit', function(req, res){
   transporter.sendMail(emailOptions, (err, info) => {
     if (err) {
       console.log(err, 'Email is not sent.');
-      res.render('emailFail',{user:user});
+      res.render('emailFail', {user:user});
     } 
     else {
       console.log('Email sent ' + info);
-      res.render('emailSent',{user:user});
+      res.render('emailSent', {user:user});
     }
   });
 });

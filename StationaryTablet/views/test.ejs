@@ -3,32 +3,215 @@
     <title><%= title %></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href='/stylesheets/testStyle.css'/>
+    <link rel="stylesheet" href='/stylesheets/style.css'/>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    
+    <!-- Form Validation JavaScript -->
+    <script type="text/javascript">
+        (function () {
+            'use strict';
+            window.addEventListener('load', function() {
+                let form = document.getElementById('registerTablet');
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            }, false);
+        })();
+    </script>
+
+    <head>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img class="testimage" src="/images/sglogo(main).png">
+                </a>
+                
+                <!-- Dropdown button for small size screen-->
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--If scrollable then put video tab for navbar-->
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-sm-0">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="/registerTablet">Register for iPad</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/scanQR">Download JiAR</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </head>
+
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                    <div class="card card-register my-5">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Register</h5>
-                            <form class="form-register">
-                                <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="email address" required autofocus>
-                                    <label for="inputEmail">Email address</label>
-                                </div>
-                            </form>
+        <div class="background">
+            <h1>Welcome to your first step in the JiAR experience!</h1>
+                        <h4>Fill in your details to borrow iPads from the nearby docking station</h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
+                        <div class="card card-register my-5 w-100">
+                            <div class="card-body">
+                                <form class="form-register" method="POST" action="/registerTablet/submit" id="registerTablet">
+                                    <div class="form-row">
+                                        <div class="form-label-group col-lg-6">
+                                            <label for="borrowerFirstName">First Name:</label>
+                                            <input type="text" name="firstName" class="form-control" id="borrowerFirstName">
+                                        </div>
+
+                                        <div class="form-label-group col-lg-6">
+                                            <label for="borrowerLastName">Last Name:</label>
+                                            <input type="text" name="lastName" class="form-control" id="borrowerLastName">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-label-group">
+                                        <label for="contactNumber">Contact Number:</label>
+                                        <input type="tel" pattern="\d{8}$" name="contactNumber" class="form-control" id="contactNumber" aria-describeby="contactHelp">
+                                    </div>
+
+                                    <div class="form-label-group">
+                                        <label for="borrowerEmail">Email Address:</label>
+                                        <input type="email" name="email" class="form-control" id="borrowerEmail" placeholder="name@example.com">
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-label-group col-lg-6">
+                                            <label for="visitorIdentity">Are you a Singapore Airlines (SIA) employee?</label>
+                                            <div class="form-fluid">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="siaEmployee" name="siaEmployee" class="custom-control-input">
+                                                    <label class="custom-control-label" for="siaEmployee">Yes</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="siaEmployee" name="siaEmployee" class="custom-control-input">
+                                                    <label class="custom-control-label" for="siaEmployee">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-label-group col-lg-6">
+                                            <label for="ipadQuantity">Number of iPads</label>
+                                            <select name="numberOfIpads" class="custom-select">
+                                                <option selected>1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="custom-control custom-chechbox mb-3">
+                                        <input type="checkbox" class="form-check-input" id="termsAndConditionsModal" name="agreeToMarketing">
+                                        <label class="form-check-label" for="termsAndConditionsModal">I would like to receive marketing emails from KrisLab.</label>
+                                    </div>
+
+                                    <div class="custom-control custom-chechbox mb-3">
+                                        <input type="checkbox" class="form-check-input" id="termsAndConditionsModal" name="termsAndConditions">
+                                        <label class="form-check-label" for="termsAndConditionsModal">
+                                            <a href="#" data-toggle="modal" data-target="#termsAndConditions">Terms and Conditions</a>
+                                        </label>
+                                    </div>
+
+                                    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="termsAndConditonsModalTitle" aria-hidden="true" id="termsAndConditions">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="termsAndConditionsTitle">Terms and Conditions</h5>
+                                                </div>
+                                                <!-- TODO: Add Terms and Conditions -->
+                                                <div class="modal-body">
+                                                    <p>Place terms and conditions here.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <button type="submit" class="btn btn-primary">Request</button>
+                                </form>
+                                <script>
+                                    $('#registerTablet').bootstrapValidator({
+                                        feedbackIcons: {
+                                            valid: 'glyphicon glyphicon-ok',
+                                            invalid: 'glyphicon glyphicon-remove',
+                                            validating: 'glyphicon glyphicon-refresh'
+                                        },
+                                        fields: {
+                                            firstName: {
+                                                validators: {
+                                                    stringLength: {
+                                                        min: 2,
+                                                        message: 'Please enter your first name'
+                                                    },
+                                                    notEmpty: {
+                                                        message: 'Please enter your first name'
+                                                    }
+                                                }
+                                            },
+                                            lastName: {
+                                                validators: {
+                                                    stringLength: {
+                                                        min: 2,
+                                                        message: 'Please enter your last name'
+                                                    },
+                                                    notEmpty: {
+                                                        message: 'Please enter your last name'
+                                                    }
+                                                }
+                                            },
+                                            contactNumber: {
+                                                validators: {
+                                                    numeric: {
+                                                        message: 'The contact number must be a number'
+                                                    },
+                                                    notEmpty: {
+                                                        message: 'Please enter your contact number'
+                                                    }
+                                                }
+                                            },
+                                            email: {
+                                                validators: {
+                                                    notEmpty: {
+                                                        message: 'Please enter your email address'
+                                                    },
+                                                    emailAddress: {
+                                                        message: 'Please enter a valid email address'
+                                                    }
+                                                }
+                                            }, 
+                                            termsAndConditions: {
+                                                validators: {
+                                                    notEmpty: {
+                                                        message: 'Please read the terms and conditions and check the box before you can proceed.'
+                                                    }
+                                                }
+                                            },
+                                            siaEmployee: {
+                                                validators: {
+                                                    notEmpty: {
+                                                        message: 'Please indicate whether you are an employee of Singapore Airlines (SIA).'
+                                                    }
+                                                }
+                                            },
+                                        }
+                                    });
+                                </script>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </body>
 </html>
