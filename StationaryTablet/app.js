@@ -1,21 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 require('dotenv').config();
 
 //  Choose one of the mainRouter for main page
-var mainRouter = require('./routes/main');
-var registerTabletRouter = require('./routes/registerTablet');
-var scanQRRouter = require('./routes/scanQR');
-var verifyRouter = require('./routes/verify');
-var verifyFailRouter = require('./routes/verifyFail');
+const mainRouter = require('./routes/main');
+const registerTabletRouter = require('./routes/registerTablet');
+const scanQRRouter = require('./routes/scanQR');
+const verifyRouter = require('./routes/verify');
+const verifyFailRouter = require('./routes/verifyFail');
 
 //  Testing purposes
-var testRouter = require('./routes/test')
+const testRouter = require('./routes/test')
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'javascript')));
 
 app.get('/', mainRouter);
 app.use('/registerTablet', registerTabletRouter);

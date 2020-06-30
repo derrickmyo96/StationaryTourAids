@@ -32,8 +32,9 @@ router.post('/submit', function(req, res){
     borrowID: borrowID
   }
 
-  // const emailContent =  'Welcome ' + name + ',\n' + 'Please use the following link to verify your email address that you used to register for an iPad.'
-
+  //  Create a token
+  //  Encrypted with JWT secret key
+  //  To encrypt: name, email, contact, amountOfTablet, agreeToMarketing, borrowID
   const token = jwt.sign({name, email, contact, amountOfTablet, agreeToMarketing, borrowID}, process.env.JWT_TOKEN, {expiresIn: '5m'});
 
   //  Transport service for nodemailer to send emails
