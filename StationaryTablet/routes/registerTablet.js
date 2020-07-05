@@ -2,10 +2,26 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
 
 //  Global variables
 let name, email, contact, amountOfTablet, agreeToMarketing, borrowID;
-let availableTablet = 3;
+let availableTablet;
+
+axios.get(process.env.GET_REQUEST_URL)
+    .then(function(response) {
+      //  Handle success
+      availableTablet = response.data;
+      availableTablet = Object.values(availableTablet)[0];
+      console.log(availableTablet);
+    })
+    .catch(function (error) {
+      //  Handle error
+      console.log(error)
+    })
+    .finally(function() {
+      //  Always executed
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -34,7 +50,7 @@ router.post('/submit', function(req, res){
   }
 
   //  Create a token
-  //  Encrypted with JWT secret key
+  //  Encrypted with JWT secret key that is created in .env file
   //  To encrypt: name, email, contact, amountOfTablet, agreeToMarketing, borrowID
   const token = jwt.sign({name, email, contact, amountOfTablet, agreeToMarketing, borrowID}, process.env.JWT_TOKEN, {expiresIn: '5m'});
 
