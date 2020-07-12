@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <title><%= title %></title>
+    <% availableTablet %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href='/stylesheets/style.css'/>
@@ -11,7 +12,8 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- Form Validation JavaScript -->
-    <script type="text/javascript">
+    
+    <script type="text/javascript">  
         (function () {
             'use strict';
             window.addEventListener('load', function() {
@@ -28,7 +30,7 @@
     </script>
 
     <head>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="/">
                     <img class="testimage" src="/images/sglogo(main).png">
@@ -53,10 +55,10 @@
         </nav>
     </head>
 
-    <body>
+    <body onload="checkAvailability()">
         <div class="background">
             <h1>Welcome to your first step in the JiAR experience!</h1>
-                        <h4>Fill in your details to borrow iPads from the nearby docking station</h4>
+            <h4>Fill in your details to borrow iPads from the nearby docking station</h4>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
@@ -105,11 +107,14 @@
                                         </div>
 
                                         <div class="form-label-group col-lg-6">
-                                            <label for="ipadQuantity">Number of iPads</label>
+                                            <label for="ipadQuantity">Number of iPads | </label>
+                                            <label for="availableTablet" id="availableTablet">Available Tablets: </label>
+                                            <label for="availableNumber" id="availableNumber"><%= availableTablet %></label>
                                             <select name="numberOfIpads" class="custom-select">
-                                                <option selected>1</option>
-                                                <option value="1">2</option>
-                                                <option value="2">3</option>
+                                                <option id="noTablet">Sorry. There are currently no iPads available.</option>
+                                                <option id="1">1</option>
+                                                <option id="2">2</option>
+                                                <option id="3">3</option>
                                             </select>
                                         </div>
                                     </div>
@@ -143,7 +148,35 @@
                                             </div>
                                         </div>
                                     </div> 
-                                    <button type="submit" class="btn btn-primary">Request</button>
+                                    <button type="submit" id="RequestButton" class="btn btn-primary">Request</button>
+
+                                    <script>
+                                        function checkAvailability() {
+                                            const available = document.getElementById('availableNumber').innerHTML;
+                                            if (available == 0) {
+                                                document.getElementById('RequestButton').disabled = true;
+                                                document.getElementById('1').disabled = true;
+                                                document.getElementById('2').disabled = true;
+                                                document.getElementById('3').disabled = true;
+                                                document.getElementById('noTablet').selected = true;
+                                            }
+                                            else if (available == 1) {
+                                                document.getElementById('noTablet').disabled = true;
+                                                document.getElementById('2').disabled = true;
+                                                document.getElementById('3').disabled = true;
+                                                document.getElementById('1').selected = true;
+                                            }
+                                            else if (available == 2) {
+                                                document.getElementById('noTablet').disabled = true;
+                                                document.getElementById('3').disabled = true;
+                                                document.getElementById('1').selected = true;
+                                            }
+                                            else {
+                                                document.getElementById('noTablet').disabled = true;
+                                                document.getElementById('1').selected = true;
+                                            }
+                                        }
+                                    </script>
                                 </form>
                             </div>
                         </div>
