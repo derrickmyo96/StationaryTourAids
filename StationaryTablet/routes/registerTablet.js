@@ -2,12 +2,30 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
+var axios = require('axios');
 
 //  Global variables
-let name, email, contact, amountOfTablet, agreeToMarketing, borrowID;
+let name, email, contact, amountOfTablet, agreeToMarketing, borrowID, availableTablet;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  var config = {
+    method: 'get',
+    url: 'https://krislab-kiosk-backend.herokuapp.com/kiosk/available_tablet',
+    headers: { }
+  };
+  
+  axios(config)
+  .then(function (response) {
+    jsonData = JSON.stringify(response.data);
+    availableTablet = jsonData;
+    // console.log(availableTablet);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  
+  console.log(availableTablet)
   res.render('registerTablet', { title: 'Register for iPad' });
 });
 
