@@ -13,15 +13,15 @@ axios.get(process.env.GET_REQUEST_URL)
       //  Handle success
       availableTablet = response.data;
       availableTablet = Object.values(availableTablet)[0];
-      console.log("Available Tablets: ", availableTablet);
+      console.log(availableTablet);
     })
     .catch(function (error) {
       //  Handle error
       console.log(error)
     })
-    // .finally(function() {
-    //   //  Always executed })
-;
+    .finally(function() {
+      //  Always executed
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -69,7 +69,7 @@ router.post('/submit', function(req, res){
     subject: 'Verify your email address to unlock your iPad at KrisLab',
     html:`
       <h2>Welcome to KrisLab.</h2>
-      <a href=https://guarded-springs-79617.herokuapp.com/verify?token=${token}>Click here to verify your email.</a>`
+      <a href=${process.env.CLIENT_URL}/verify?token=${token}>Click here to verify your email.</a>`
   };
 
   transporter.sendMail(emailOptions, (err, info) => {
