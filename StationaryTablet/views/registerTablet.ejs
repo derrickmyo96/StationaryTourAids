@@ -69,13 +69,13 @@
                                         <div class="form-label-group col-lg-6">
                                             <label for="borrowerFirstName">First Name:</label>
                                             <input type="text" name="firstName" pattern="[a-zA-Z]{2,12}" class="form-control" id="borrowerFirstName" required>
-                                            <div class='invalid-feedback'>Please enter first name.</div>
+                                            <div class='invalid-feedback'>Please enter a valid first name.</div>
                                         </div>
 
                                         <div class="form-label-group col-lg-6">
                                             <label for="borrowerLastName">Last Name:</label>
                                             <input type="text" name="lastName" pattern="[a-zA-Z]{2,12}" class="form-control" id="borrowerLastName" required>
-                                            <div class='invalid-feedback'>Please enter last name.</div>
+                                            <div class='invalid-feedback'>Please enter a valid last name.</div>
                                         </div>
                                     </div>
 
@@ -112,10 +112,10 @@
                                             <label for="availableNumber" id="availableNumber"><%= availableTablet %></label>
                                             <select name="numberOfIpads" class="custom-select">
                                                 <option id="noTablet">Sorry. There are currently no iPads available.</option>
-                                                <option id="1">1</option>
-                                                <option id="2">2</option>
-                                                <option id="3">3</option>
-                                            </select>
+                                                <% for (var i = 1; i < availableTablet+1; i++) { %>
+                                                    <option id="<%= i %>"><%= i %></option>
+                                                <% } %>
+                                            </select>  
                                         </div>
                                     </div>
 
