@@ -48,7 +48,7 @@ $ nodemon start
 ```
 ### To handle multipart form data ###
 ```shell_session
-npm install --save multer
+npm install --save form-data
 ```
 
 ### First development stage hosted on Heroku ###
