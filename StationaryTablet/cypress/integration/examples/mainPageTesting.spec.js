@@ -2,7 +2,7 @@
 
 context('Main Page Link Testing', () => {
     beforeEach(() => {
-      cy.visit('https://guarded-springs-79617.herokuapp.com')
+      cy.visit('https://stationarytablet.herokuapp.com')
     })
     // Test to navigate to Register Tablet Page
     describe('Navigate to Register Tablet Page', () => {

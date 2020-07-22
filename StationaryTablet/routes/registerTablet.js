@@ -75,7 +75,8 @@ router.post('/submit', function(req, res){
       res.render('emailFail', {user:user});
     } 
     else {
-      console.log('Email sent ' + info);
+      console.log('Email sent ' + JSON.stringify(info));
+      console.log(user);
       res.render('emailSent', {user:user});
     }
   });

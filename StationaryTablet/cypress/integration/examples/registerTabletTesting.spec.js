@@ -2,7 +2,7 @@
 
 // context('Register Tablet Page Link Testing', () => {
 //     beforeEach(() => {
-//         cy.visit('https://guarded-springs-79617.herokuapp.com/registerTablet')
+//         cy.visit('https://stationarytablet.herokuapp.com/registerTablet')
 //     })
 //     // Test to navigate to Download JiAR Page
 //     describe('Navigate to Download JiAR Page', () => {
@@ -16,7 +16,7 @@
 context('Register Tablet Form Testing', () => {
     describe('Loads Register Tablet Page', () => {
         it('loads the register tablet page', () => {
-            cy.visit('https://guarded-springs-79617.herokuapp.com/registerTablet')
+            cy.visit('https://stationarytablet.herokuapp.com/registerTablet')
         })
     })
 
@@ -27,8 +27,9 @@ context('Register Tablet Form Testing', () => {
                 cy.get('input[name="lastName"]').type("Doe")
                 cy.get('input[name="contactNumber"]').type("88888888")
                 cy.get('input[name="email"]').type("test@gmail.com")
-                cy.get('[type="radio"]').contains('Yes')
+                
             })
+            cy.get('[type="radio"]').check('No')
         })
     })
 })
