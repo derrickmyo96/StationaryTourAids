@@ -5,7 +5,6 @@ const axios = require('axios');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    console.log("token here:", req.query);
     const {token} = req.query;
 
     if (token) {
@@ -13,27 +12,25 @@ router.get('/', function(req, res, next) {
             if (err) {
                 res.render('verifyFail', { title: 'Verification Fail' });
             }
-            let {name, email, contact, amountOfTablet, agreeToMarketing, borrowID} = decodedToken;
-            
-            console.log("decodedToken", decodedToken);
+            let {name, email, contact, amountOfTablet, agreeToMarketing, siaEmployee, borrowID} = decodedToken;
 
             let data = {
-                name: name,
+                username: name,
                 email: email,
                 contact: contact,
-                amountOfTablet:amountOfTablet,
+                numberOfTablet:amountOfTablet,
                 agreeToMarketing: agreeToMarketing,
-                borrowID: borrowID
+                borrowId: borrowID,
+                siaEmployee: siaEmployee
             }
             data = JSON.stringify(data);
-            console.log("Writing to database: ", data);
             const url = process.env.POST_REQUEST_URL;
 
             const options = {
               method: 'POST',
               headers: { 'content-type': 'application/json' },
               data,
-              url,
+              url
             };
             axios(options)
             .then((response) => {

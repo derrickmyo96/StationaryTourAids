@@ -4,20 +4,24 @@ context('Main Page Link Testing', () => {
     beforeEach(() => {
       cy.visit('https://stationarytablet.herokuapp.com')
     })
-    // Test to navigate to Register Tablet Page
     describe('Navigate to Register Tablet Page', () => {
       it('clicks on link to registerTablet page', () => {
         cy.get('a[href="/registerTablet"]').click()
         cy.url().should('include', '/registerTablet')
       })
     })  
-    // Test to navigate to Download JiAR Page
     describe('Navigate to Download JiAR Page', () => {
       it('clicks on link to downloadJiAR page', () => {
         cy.get('a[href="/scanQR"]').click()
         cy.url().should('include', '/scanQR')
       })
     })
+    describe('Navigate back to Main Page', () => {
+      it('clicks on logo to Main page', () => {
+        cy.get('img[src="/images/sglogo(main).png"]').click()
+        cy.url().should('include', '/')
+      })
+  })
     // Test to navigate to Advertisement Videos
     describe('Navigate to first advertisement video', () => {
       it('clicks on link to first video on main page', () => {

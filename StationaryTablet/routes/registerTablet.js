@@ -50,8 +50,8 @@ router.post('/submit', function(req, res){
 
   //  Create a token
   //  Encrypted with JWT secret key that is created in .env file
-  //  To encrypt: name, email, contact, amountOfTablet, agreeToMarketing, borrowID
-  const token = jwt.sign({name, email, contact, amountOfTablet, agreeToMarketing, borrowID}, process.env.JWT_TOKEN, {expiresIn: '5m'});
+  //  To encrypt: all information as received from the form input
+  const token = jwt.sign({name, email, contact, amountOfTablet, agreeToMarketing, siaEmployee, borrowID}, process.env.JWT_TOKEN, {expiresIn: '5m'});
 
   //  Transport service for nodemailer to send emails
   const transporter = nodemailer.createTransport({
