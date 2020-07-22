@@ -96,11 +96,11 @@
                                             <label for="visitorIdentity">Are you a Singapore Airlines (SIA) employee?</label>
                                             <div class="form-fluid">
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked>
+                                                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="Yes" checked>
                                                     <label class="custom-control-label" for="customRadioInline1">Yes</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" value="No">
                                                     <label class="custom-control-label" for="customRadioInline2">No</label>
                                                 </div>
                                             </div>
@@ -155,21 +155,10 @@
                                             const available = document.getElementById('availableNumber').innerHTML;
                                             if (available == 0) {
                                                 document.getElementById('RequestButton').disabled = true;
-                                                document.getElementById('1').disabled = true;
-                                                document.getElementById('2').disabled = true;
-                                                document.getElementById('3').disabled = true;
+                                                for (var i=1; i<available+1; i++) {
+                                                document.getElementById(i).disabled = true;
+                                                }
                                                 document.getElementById('noTablet').selected = true;
-                                            }
-                                            else if (available == 1) {
-                                                document.getElementById('noTablet').disabled = true;
-                                                document.getElementById('2').disabled = true;
-                                                document.getElementById('3').disabled = true;
-                                                document.getElementById('1').selected = true;
-                                            }
-                                            else if (available == 2) {
-                                                document.getElementById('noTablet').disabled = true;
-                                                document.getElementById('3').disabled = true;
-                                                document.getElementById('1').selected = true;
                                             }
                                             else {
                                                 document.getElementById('noTablet').disabled = true;

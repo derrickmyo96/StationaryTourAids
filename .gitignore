@@ -1,2 +1,10 @@
 
 *.json
+*.json
+StationaryTablet/package-lock.json
+*.json
+StationaryTablet/package.json
+StationaryTablet/cypress/integration/.DS_Store
+StationaryTablet/package-lock.json
+StationaryTablet/package.json
+*.json
