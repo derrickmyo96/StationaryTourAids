@@ -27,9 +27,9 @@ context('Register Tablet Form Testing', () => {
                 cy.get('input[name="lastName"]').type("Doe")
                 cy.get('input[name="contactNumber"]').type("88888888")
                 cy.get('input[name="email"]').type("test@gmail.com")
-                
+                cy.get('input[type="radio"]').check('No')
             })
-            cy.get('[type="radio"]').check('No')
+            
         })
     })
 })

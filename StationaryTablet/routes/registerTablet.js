@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const axios = require('axios');
 
 //  Global variables
-let name, email, contact, amountOfTablet, agreeToMarketing, borrowID;
+let name, email, contact, amountOfTablet, siaEmployee, agreeToMarketing, borrowID;
 let availableTablet;
 
 axios.get(process.env.GET_REQUEST_URL)
@@ -34,6 +34,7 @@ router.post('/submit', function(req, res){
   email = req.body.email;
   contact = req.body.contactNumber;
   amountOfTablet = req.body.numberOfIpads;
+  siaEmployee = req.body.siaEmployee;
   agreeToMarketing = req.body.agreeToMarketing;
   borrowID = Math.floor((Math.random() * 900000) + 99999);
 
@@ -42,6 +43,7 @@ router.post('/submit', function(req, res){
     email:email,
     contact:contact,
     amountOfTablet:amountOfTablet,
+    siaEmployee: siaEmployee,
     agreeToMarketing: agreeToMarketing,
     borrowID: borrowID
   }
