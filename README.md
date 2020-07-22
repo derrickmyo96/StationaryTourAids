@@ -51,5 +51,15 @@ $ nodemon start
 npm install --save form-data
 ```
 
+### For testing ###
+```shell_session
+npm install cypress --save-dev
+```
+Use 
+```shell_session
+$(npm bin)/cypress open
+```
+to run test environment
+
 ### First development stage hosted on Heroku ###
 https://guarded-springs-79617.herokuapp.com
