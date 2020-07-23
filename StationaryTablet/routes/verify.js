@@ -12,16 +12,16 @@ router.get('/', function(req, res, next) {
             if (err) {
                 res.render('verifyFail', { title: 'Verification Fail' });
             }
-            let {name, email, contact, amountOfTablet, agreeToMarketing, siaEmployee, borrowID} = decodedToken;
+            let {name, email, contact, amountOfTablet, agreeToMarketing, isEmployee, borrowID} = decodedToken;
 
             let data = {
                 username: name,
                 email: email,
                 contact: contact,
                 numberOfTablet:amountOfTablet,
-                agreeToMarketing: agreeToMarketing,
+                agreeToMarketing: (agreeToMarketing==="Yes") ? true : false,
                 borrowId: borrowID,
-                siaEmployee: siaEmployee
+                isEmployee: (isEmployee==="Yes") ? true : false
             }
             data = JSON.stringify(data);
             const url = process.env.POST_REQUEST_URL;

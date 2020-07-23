@@ -34,7 +34,7 @@ router.post('/submit', function(req, res){
   email = req.body.email;
   contact = req.body.contactNumber;
   amountOfTablet = req.body.numberOfIpads;
-  siaEmployee = req.body.siaEmployee;
+  isEmployee = req.body.siaEmployee;
   agreeToMarketing = req.body.agreeToMarketing;
   borrowID = Math.floor((Math.random() * 900000) + 99999);
 
@@ -43,7 +43,7 @@ router.post('/submit', function(req, res){
     email:email,
     contact:contact,
     amountOfTablet:amountOfTablet,
-    siaEmployee: siaEmployee,
+    isEmployee: isEmployee,
     agreeToMarketing: agreeToMarketing,
     borrowID: borrowID
   }
@@ -51,7 +51,7 @@ router.post('/submit', function(req, res){
   //  Create a token
   //  Encrypted with JWT secret key that is created in .env file
   //  To encrypt: all information as received from the form input
-  const token = jwt.sign({name, email, contact, amountOfTablet, agreeToMarketing, siaEmployee, borrowID}, process.env.JWT_TOKEN, {expiresIn: '5m'});
+  const token = jwt.sign({name, email, contact, amountOfTablet, agreeToMarketing, isEmployee, borrowID}, process.env.JWT_TOKEN, {expiresIn: '5m'});
 
   //  Transport service for nodemailer to send emails
   const transporter = nodemailer.createTransport({
