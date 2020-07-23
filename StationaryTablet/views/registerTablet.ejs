@@ -12,22 +12,6 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- Form Validation JavaScript -->
-    
-    <script type="text/javascript">  
-        (function () {
-            'use strict';
-            window.addEventListener('load', function() {
-                let form = document.getElementById('registerTablet');
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            }, false);
-        })();
-    </script>
 
     <head>
         <nav class="navbar navbar-expand-lg fixed-top">
@@ -150,7 +134,21 @@
                                     </div> 
                                     <button type="submit" id="RequestButton" class="btn btn-primary">Request</button>
 
-                                    <script>
+                                    <script type="text/javascript">  
+                                        (() =>  {
+                                            'use strict';
+                                            window.addEventListener('load', function() {
+                                                let form = document.getElementById('registerTablet');
+                                                form.addEventListener('submit', function (event) {
+                                                    if (form.checkValidity() === false) {
+                                                        event.preventDefault();
+                                                        event.stopPropagation();
+                                                    }
+                                                    form.classList.add('was-validated');
+                                                }, false);
+                                            }, false);
+                                        })();
+
                                         function checkAvailability() {
                                             const available = document.getElementById('availableNumber').innerHTML;
                                             if (available == 0) {
