@@ -11,6 +11,7 @@ const registerTabletRouter = require('./routes/registerTablet');
 const scanQRRouter = require('./routes/scanQR');
 const verifyRouter = require('./routes/verify');
 const verifyFailRouter = require('./routes/verifyFail');
+const verifyDuplicateRouter = require('./routes/verifyDuplicate');
 
 //  Testing purposes
 const testRouter = require('./routes/test')
@@ -33,6 +34,7 @@ app.use('/registerTablet', registerTabletRouter);
 app.use('/scanQR', scanQRRouter);
 app.use('/verify', verifyRouter);
 app.use('/verifyFail', verifyFailRouter);
+app.use('/verifyDuplicate', verifyDuplicateRouter);
 
 //  Testing purposes
 app.get('/test', testRouter);

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
+const { response } = require('express');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,6 +26,7 @@ router.get('/', function(req, res, next) {
             }
             data = JSON.stringify(data);
             const url = process.env.POST_REQUEST_URL;
+            let slotAssigned;
 
             const options = {
               method: 'POST',
@@ -35,11 +37,13 @@ router.get('/', function(req, res, next) {
             axios(options)
             .then((response) => {
               console.log(response);
+              slotAssigned = Object.values(response.data)[1];
+              console.log("Type:", typeof(slotAssigned));
+                res.render('verifySuccess', { title: 'Verification Successful', slotAssigned: slotAssigned });
             }).catch((error) => {
               console.log(error);
+              res.render('verifyDuplicate', { title: 'Verified'});
             });
-            
-            res.render('verifySuccess', { title: 'Verification Successful' });
         })
     };
 });

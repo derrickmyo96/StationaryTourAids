@@ -8,21 +8,21 @@ const axios = require('axios');
 let name, email, contact, amountOfTablet, siaEmployee, agreeToMarketing, borrowID;
 let availableTablet;
 
-axios.get(process.env.GET_REQUEST_URL)
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  console.log("Here");
+  axios.get(process.env.GET_REQUEST_URL)
     .then(function(response) {
       //  Handle success
       availableTablet = response.data;
       availableTablet = Object.values(availableTablet)[0];
       console.log("Available Tablets: ", availableTablet);
+      res.render('registerTablet', { title: 'Register for iPad', availableTablet: availableTablet });
     })
     .catch(function (error) {
       //  Handle error
       console.log(error)
-});
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('registerTablet', { title: 'Register for iPad', availableTablet: availableTablet });
+  });
 });
 
 router.post('/', function(req, res, next) {
