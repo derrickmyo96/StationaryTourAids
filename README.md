@@ -1,5 +1,22 @@
-## StationaryTabletFrontend
-Stationary Tablet Frontend Development
+# KrisLab Tour Kiosk FrontEnd Development
+**Kiosk FrontEnd** is a responsive web application built on **NodeJS, Express** with **EJS** templating and **Bootstrap** for the purpose of introducing visitors of **KrisLab** on its background and innovative developments. This application will also serve as the point of registration for visitors who wish to borrow tablets from **KrisLab** for tour purposes within KrisLab.
+
+## Modules, packages and tools utilized in developing this web application
+### Tools
+1. NodeJS (JavaScript runtime)
+2. Express (Web framework built on NodeJS)
+3. EJS (Templating language)
+4. Bootstrap 4 (Front-end toolkit for responsive web design)
+
+### Modules
+1. Nodemailer (Email sending)
+2. JWT (To generate and encrypt token)
+3. Axios (Perform HTTPS GET and POST requests)
+4. Cypress (For testing purposes)
+
+### Packages
+1. Express-generator (To create application skeleton)
+2. Nodemon (To develop node.js based applications)
 
 # Prequisites for development
 ### Install nodejs and npm ###
@@ -45,10 +62,6 @@ $ npm install
 ### Run node server ###
 ```shell_session
 $ nodemon start
-```
-### To handle multipart form data ###
-```shell_session
-npm install --save form-data
 ```
 
 ### For testing ###
