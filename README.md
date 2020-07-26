@@ -38,7 +38,24 @@ The following are the tools, modules and packages from npm that are utilized in 
 6. dotenv (https://www.npmjs.com/package/dotenv)
 
 # Other Features
-
+## Choosing the number of tablets to borrow
+We implemented a function, checkAvailability(), to only show the number of available tablets to borrow and to grey out any non-satisfied options.
+```javascript
+function checkAvailability() {
+    const available = document.getElementById('availableNumber').innerHTML;
+    if (available == 0) {
+        document.getElementById('RequestButton').disabled = true;
+        for (var i=1; i<available+1; i++) {
+        document.getElementById(i).disabled = true;
+        }
+        document.getElementById('noTablet').selected = true;
+    }
+    else {
+        document.getElementById('noTablet').disabled = true;
+        document.getElementById('1').selected = true;
+    }
+}
+```
 
 # More on Development Tools
 As we are utilizing EJS as our templating language, we will set the view of our directory as EJS.
@@ -88,6 +105,21 @@ We utilized Cyrpess for our front-end testing purposes, which allows us to write
 $ (npm bin)/cypress open
 ```
 Once Cypress is started, start any test scripts as specified in **/cypress/integration/examples/\<file-name>.spec.js**
+
+## Axios
+We utilized Axios to perform Promise based HTTP GET and POST requests. When performing GET requests, Axios returns a JSON object. To query for a specifi data, use the following:
+```javascript
+axios.get(process.env.GET_REQUEST_URL)
+  .then((res) => {
+    // Handle success
+    availableTablet = Object.values(res.data)[position_of_data];
+  }).catch((err) => {
+    // Handle error
+    console.log(error)
+  });
+});
+```
+
 
 # Live Demo
 ### Our web application is currently hosted on Heroku
