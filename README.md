@@ -1,24 +1,29 @@
-# KrisLab Tour Kiosk FrontEnd Development
+KrisLab Tour Kiosk Front-end Development
+========================================
+- [Introduction](#introduction)
+- [Development tools](#development-tools)
+- [Prerequisite](#prerequisite)
+
+
+# Introduction
 **Kiosk FrontEnd** is a responsive web application built on **NodeJS, Express** with **EJS** templating and **Bootstrap** for the purpose of introducing visitors of **KrisLab** on its background and innovative developments. This application will also serve as the point of registration for visitors who wish to borrow tablets from **KrisLab** for tour purposes within KrisLab.
 
-## Modules, packages and tools utilized in developing this web application
+# Development Tools
+The following are the tools, modules and packages from npm that are utilized in this web application development.
 ### Tools
-1. NodeJS (JavaScript runtime)
-2. Express (Web framework built on NodeJS)
-3. EJS (Templating language)
-4. Bootstrap 4 (Front-end toolkit for responsive web design)
+1. NodeJS (https://nodejs.org/en/)
+2. Express (https://expressjs.com)
+3. EJS (https://ejs.co)
+4. Bootstrap 4 (https://getbootstrap.com)
 
 ### Modules
-1. Nodemailer (Email sending)
-2. JWT (To generate and encrypt token)
-3. Axios (Perform HTTPS GET and POST requests)
-4. Cypress (For testing purposes)
+1. Nodemailer (https://www.npmjs.com/package/nodemailer)
+2. JWT (https://www.npmjs.com/package/jsonwebtoken)
+3. Axios (https://www.npmjs.com/package/axios)
+4. Cypress (https://www.npmjs.com/package/cypress)
+5. Nodemon (https://www.npmjs.com/package/nodemon)
 
-### Packages
-1. Express-generator (To create application skeleton)
-2. Nodemon (To develop node.js based applications)
-
-# Prequisites for development
+# Prerequisite
 ### Install nodejs and npm ###
 https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
