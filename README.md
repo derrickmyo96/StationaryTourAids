@@ -68,21 +68,19 @@ $ npm start
 ```shell_session
 $ npm i dotenv
 ```
-
-
-
-
-
-### Run node server ###
-```shell_session
-$ nodemon start
-```
-
-Use 
+We utilized Cyrpess for our front-end testing purposes, which allows us to write tests for:
+1. End-to-end testing
+2. Integration testing
+3. Unit testing
+### Install Cypress module
+ ```shell_session
+ $ npm install --save-dev cypress
+ ```
+### Open Cypress from the CLI (Command Line Interface)
 ```shell_session
 $(npm bin)/cypress open
 ```
-to run test environment
+Once Cypress is started, start any test scripts as specified in **/cypress/integration/examples/\<file-name>.spec.js**
 
 # Live Demo
 ### Our web application is currently hosted on Heroku
