@@ -3,6 +3,7 @@ KrisLab Tour Kiosk Front-end Development
 - [Introduction](#introduction)
 - [Development tools](#development-tools)
   - [More on Development Tools](#more-on-development-tools)
+- [Other Features](#other-features)
 - [Live Demo](#live-demo)
 
 
@@ -36,6 +37,9 @@ The following are the tools, modules and packages from npm that are utilized in 
 5. Nodemon (https://www.npmjs.com/package/nodemon)
 6. dotenv (https://www.npmjs.com/package/dotenv)
 
+# Other Features
+
+
 # More on Development Tools
 As we are utilizing EJS as our templating language, we will set the view of our directory as EJS.
 ### Installing and setting EJS as view
@@ -63,11 +67,14 @@ $ nodemon start
 $ npm start
 ```
 
+## dotenv
 **dotenv** file is used to store all sensitive information such as username and passwords. These configurations are seperated from the code, which is based on [The Twelve-Factor App](https://12factor.net/config) methodology.
 ### Install dotenv module
 ```shell_session
 $ npm i dotenv
 ```
+
+## Cypress
 We utilized Cyrpess for our front-end testing purposes, which allows us to write tests for:
 1. End-to-end testing
 2. Integration testing
@@ -78,7 +85,7 @@ We utilized Cyrpess for our front-end testing purposes, which allows us to write
  ```
 ### Open Cypress from the CLI (Command Line Interface)
 ```shell_session
-$(npm bin)/cypress open
+$ (npm bin)/cypress open
 ```
 Once Cypress is started, start any test scripts as specified in **/cypress/integration/examples/\<file-name>.spec.js**
 
