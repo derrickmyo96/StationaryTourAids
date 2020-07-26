@@ -2,7 +2,8 @@ KrisLab Tour Kiosk Front-end Development
 ========================================
 - [Introduction](#introduction)
 - [Development tools](#development-tools)
-- [Prerequisite](#prerequisite)
+  - [More on Development Tools](#more-on-development-tools)
+- [Live Demo](#live-demo)
 
 
 # Introduction
@@ -22,32 +23,34 @@ The following are the tools, modules and packages from npm that are utilized in 
 3. Axios (https://www.npmjs.com/package/axios)
 4. Cypress (https://www.npmjs.com/package/cypress)
 5. Nodemon (https://www.npmjs.com/package/nodemon)
+6. dotenv (https://www.npmjs.com/package/dotenv)
 
-# Prerequisite
+# More on Development Tools
+As this web application is built using NodeJS, we require both npm and node.js installed on the development machine first.
+For this web application, we are using npm version 6.14.5 and node.js version 14.5.0.
 ### Install nodejs and npm ###
 https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
+We use Express as the web framework, which is built for NodeJS. We make use of **express-generator** to quickly create an application skeleton.
 ### Install Express generator package globally (g stand for global in command): ###
 ```shell_session
 $ sudo npm install express-generator -g
 ```
-
-### To run node server, install the nodemon package globally (Optional) ###
-### Can run via npm start as well.
+**Nodemon** monitors for any changes in the source and automatically restarts the server. It is optional to use **nodemon** for starting the server. We can also use **npm start** to start the server.
+### Install the nodemon package globally(Optional)
 ```shell_session
 $ sudo npm install nodemon -g
 ```
-
-### Install nodemailer package for sending verification link via email ###
+### Starting server using nodemon(Optional)
 ```shell_session
-$ npm install --save nodemailer
+$ nodemon start
+```
+### Starting server using npm
+```sell_session
+$ npm start
 ```
 
-### Install jwt for email verification  ###
-```shell_session
-$ npm i jsonwebtoken
-```
-
+**dotenv** file is used to store all sensitive information such as username and passwords. 
 ### Install dotenv to load environment modules from .env file into process.env  ###
 ```shell_session
 $ npm i dotenv
@@ -69,15 +72,12 @@ $ npm install
 $ nodemon start
 ```
 
-### For testing ###
-```shell_session
-npm install cypress --save-dev
-```
 Use 
 ```shell_session
 $(npm bin)/cypress open
 ```
 to run test environment
 
-### First development stage hosted on Heroku ###
+# Live Demo
+### Our web application is currently hosted on Heroku
 https://guarded-springs-79617.herokuapp.com
