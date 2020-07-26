@@ -13,9 +13,6 @@ const verifyRouter = require('./routes/verify');
 const verifyFailRouter = require('./routes/verifyFail');
 const verifyDuplicateRouter = require('./routes/verifyDuplicate');
 
-//  Testing purposes
-const testRouter = require('./routes/test')
-
 const app = express();
 
 // view engine setup
@@ -35,9 +32,6 @@ app.use('/scanQR', scanQRRouter);
 app.use('/verify', verifyRouter);
 app.use('/verifyFail', verifyFailRouter);
 app.use('/verifyDuplicate', verifyDuplicateRouter);
-
-//  Testing purposes
-app.get('/test', testRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
