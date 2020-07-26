@@ -56,6 +56,19 @@ function checkAvailability() {
     }
 }
 ```
+## Displaying advertisement videos featuring KrisLab
+The aim of this kiosk is to largely replace KrisLab employees having to physically introduce KrisLab to visitor. This is achieved through the use of videos that features KrisLab. These video contents can simply be replaced by adding the relevant videos in the **/public/videos** folder and to specify the path in the **main.ejs** file.
+```html
+<div id="<unique-id, eg.digitalInnovationHub>" class="container-fluid">
+    <div class="embed-responsive embed-responsive-21by9">
+        <video controls playsinline>
+            <source src="/videos/<video-file-name>.mp4" type="video/mp4">
+        </video>
+    </div>
+    <h2><Description of video file></h2>
+</div>
+```
+Video can be put to autoplay mode using autoPlay (camel cases), or to show the controls by specifying **controls** as an attribute in **\<video>** tag.
 
 # More on Development Tools
 As we are utilizing EJS as our templating language, we will set the view of our directory as EJS.
