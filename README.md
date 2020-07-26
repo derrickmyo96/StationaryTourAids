@@ -8,7 +8,7 @@ KrisLab Tour Kiosk Front-end Development
 
 
 # Introduction
-**Kiosk FrontEnd** is a responsive web application built on **NodeJS, Express** with **EJS** templating and **Bootstrap** for the purpose of introducing visitors of **KrisLab** on its background and innovative developments. This application will also serve as the point of registration for visitors who wish to borrow tablets from **KrisLab** for tour purposes within KrisLab.
+**Kiosk FrontEnd** is a responsive web application built on **NodeJS, Express** with **EJS** templating and **Bootstrap** for the purpose of introducing visitors of **KrisLab** on its background and innovative developments. This application will also serve as the point of registration for visitors who wish to borrow tablets from **KrisLab** for tour purposes within **KrisLab**.
 
 As this web application is built using NodeJS, we require both npm and node.js installed on the development machine first.
 For this web application, we are using npm version 6.14.5 and node.js version 14.5.0.
