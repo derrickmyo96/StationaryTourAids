@@ -50,11 +50,11 @@ We use Express as the web framework, which is built for NodeJS. We make use of *
 $ npm i express-generator -g
 ```
 **Nodemon** monitors for any changes in the source and automatically restarts the server. It is optional to use **nodemon** for starting the server. We can also use **npm start** to start the server.
-### Install the nodemon package globally(Optional)
+### Install the nodemon package globally (Optional)
 ```shell_session
 $ sudo npm install nodemon -g
 ```
-### Starting server using nodemon(Optional)
+### Starting server using nodemon (Optional)
 ```shell_session
 $ nodemon start
 ```
