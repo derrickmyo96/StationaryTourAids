@@ -46,7 +46,7 @@ function checkAvailability() {
     if (available == 0) {
         document.getElementById('RequestButton').disabled = true;
         for (var i=1; i<available+1; i++) {
-        document.getElementById(i).disabled = true;
+          document.getElementById(i).disabled = true;
         }
         document.getElementById('noTablet').selected = true;
     }
