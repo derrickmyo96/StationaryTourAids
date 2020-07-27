@@ -38,7 +38,7 @@ The following are the tools, modules and packages from npm that are utilized in 
 6. dotenv (https://www.npmjs.com/package/dotenv)
 
 # Other Features
-## Choosing the number of tablets to borrow
+### Choosing the number of tablets to borrow
 We implemented a function, checkAvailability(), to only show the number of available tablets to borrow and to grey out any non-satisfied options.
 ```javascript
 function checkAvailability() {
@@ -56,7 +56,7 @@ function checkAvailability() {
     }
 }
 ```
-## Displaying advertisement videos featuring KrisLab
+### Displaying advertisement videos featuring KrisLab
 The aim of this kiosk is to largely replace KrisLab employees having to physically introduce KrisLab to visitor. This is achieved through the use of videos that features KrisLab. These video contents can simply be replaced by adding the relevant videos in the **/public/videos** folder and to specify the path in the **main.ejs** file.
 ```html
 <div id="<unique-id, eg.digitalInnovationHub>" class="container-fluid">
