@@ -12,6 +12,7 @@ const scanQRRouter = require('./routes/scanQR');
 const verifyRouter = require('./routes/verify');
 const verifyFailRouter = require('./routes/verifyFail');
 const verifyDuplicateRouter = require('./routes/verifyDuplicate');
+const leaderboardRouter = require('./routes/leaderboard');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use('/scanQR', scanQRRouter);
 app.use('/verify', verifyRouter);
 app.use('/verifyFail', verifyFailRouter);
 app.use('/verifyDuplicate', verifyDuplicateRouter);
+app.use('/leaderboard', leaderboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

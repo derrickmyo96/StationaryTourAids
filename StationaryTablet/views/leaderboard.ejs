@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <title><%= title %></title>
+    <% leaderboardData %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href='/stylesheets/style.css'/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <head>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="">
+                    <img class="testimage" src="/images/sglogo(main).png">
+                </a>
+                <!-- Dropdown button for small size screen-->
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--If scrollable then put video tab for navbar-->
+                <div class="collapse navbar-collapse" id="navbarToggler">
+                    <ul class="navbar-nav mr-auto mt-2 mt-sm-0">
+                        <li class="nav-item">
+                        <a class="nav-link" href="/registerTablet">Register for iPads</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/scanQR">Experience JiAR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/leaderboard">JiAR Leaderboard</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </head>
+
+    <body>
+        <div class="container">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (var i=0; i < leaderboardData.length; i++) { %>
+                    <tr>
+                        <th scope="row"><%= i+1 %></th>
+                        <td><%= leaderboardData[i][0] %></td>
+                        <td><%= leaderboardData[i][1] %></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

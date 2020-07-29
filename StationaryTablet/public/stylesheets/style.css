@@ -1,7 +1,6 @@
 body, html {
     height: 100%;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
-    padding-top: 30px;
   }
 
   .jumbotron {
@@ -99,7 +98,7 @@ body, html {
   .navbar {
     background-color: #082767 !important;
     background-image: none;
-    z-index: 9999 ;
+    z-index: 1 ;
     border: 0;
     font-size:15px !important;
     border-radius: 0;
