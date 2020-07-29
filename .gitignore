@@ -8,3 +8,7 @@ StationaryTablet/cypress/integration/.DS_Store
 StationaryTablet/package-lock.json
 StationaryTablet/package.json
 *.json
+StationaryTablet/package-lock.json
+StationaryTablet/package.json
+StationaryTablet/public/.DS_Store
+StationaryTablet/.DS_Store
