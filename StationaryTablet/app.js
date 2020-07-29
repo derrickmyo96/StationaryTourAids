@@ -1,21 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 require('dotenv').config();
 
 //  Choose one of the mainRouter for main page
-var mainRouter = require('./routes/main');
-var registerTabletRouter = require('./routes/registerTablet');
-var scanQRRouter = require('./routes/scanQR');
-var verifyRouter = require('./routes/verify');
-var verifyFailRouter = require('./routes/verifyFail');
+const mainRouter = require('./routes/main');
+const registerTabletRouter = require('./routes/registerTablet');
+const scanQRRouter = require('./routes/scanQR');
+const verifyRouter = require('./routes/verify');
+const verifyFailRouter = require('./routes/verifyFail');
+const verifyDuplicateRouter = require('./routes/verifyDuplicate');
+const leaderboardRouter = require('./routes/leaderboard');
 
-//  Testing purposes
-var testRouter = require('./routes/test')
-
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,22 +25,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'javascript')));
 
 app.get('/', mainRouter);
 app.use('/registerTablet', registerTabletRouter);
 app.use('/scanQR', scanQRRouter);
 app.use('/verify', verifyRouter);
 app.use('/verifyFail', verifyFailRouter);
-
-//  Global variables
-global.name = "";
-global.contactNumber = "";
-global.emailAddress = "";
-global.amountOfTablet = 0;
-global.agreeToMarketing = "";
-
-//  Testing purposes
-app.get('/test', testRouter);
+app.use('/verifyDuplicate', verifyDuplicateRouter);
+app.use('/leaderboard', leaderboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

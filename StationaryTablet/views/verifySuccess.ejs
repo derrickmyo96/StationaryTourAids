@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <title><%= title %></title>
+    <% slotAssigned %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href='/stylesheets/style.css'/>
@@ -26,9 +27,20 @@
         <div class="container">
             <h1>Hey, its a success!</h1>
             <h4>Please wait a moment for us to unlock the iPad(s).</h4>
+            <h4>Your assigned slot is:</h4>
+            <% for(let i=0; i<slotAssigned.length; i++) { %>
+                <h4><%= slotAssigned[i]%></h4>
+            <% } %>
             <h4>We wish you a pleasant experience with JiAR.</h4>
         </div>
     </div>
 </body>
+
+<!-- To redirect to main page after 10 seconds -->
+<script>
+    setTimeout(() => {
+        window.location.href = "/";
+    }, 10000);
+</script>
 
 </html>

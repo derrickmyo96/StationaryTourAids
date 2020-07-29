@@ -12,40 +12,50 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <head>
-        <!--remove navbar-dark from nav class if everything works   -->  
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="">
                     <img class="testimage" src="/images/sglogo(main).png">
                 </a>
-                
                 <!-- Dropdown button for small size screen-->
-                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <!--If scrollable then put video tab for navbar-->
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav mr-auto mt-2 mt-sm-0">
                         <li class="nav-item">
                         <a class="nav-link" href="/registerTablet">Register for iPads</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/scanQR">Download JiAR</a>
+                            <a class="nav-link" href="/scanQR">Experience JiAR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/leaderboard">JiAR Leaderboard</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="video-background-holder">
-            <div class="video-background-overlay">
-                <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                    <source src="/videos/kris3.mp4" type="video/mp4">
+    </head>
+
+    <body>
+        <div class="card">
+            <div class="embed-responsive embed-responsive-21by9">
+                <video class="img-fluid" playsinline autoPlay muted loop width="1680px" height="720p">
+                    <source src="/videos/krislabVideo.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
-    </head>
-    <body>
-        <div class="main-page-background"> </div>
-        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <h2><a class="btn btn-primary btn-lg" href="/registerTablet">Tour KrisLab by<br>Registering for an iPad</a></h2>
+                </div>
+                <div class="col-sm">
+                    <h2><a class="btn btn-primary btn-lg" href="/scanQR">Start touring KrisLab<br>On your own devices</a></h2>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

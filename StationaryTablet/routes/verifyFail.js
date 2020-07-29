@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var jwt = require('jsonwebtoken');
+const express = require('express');
+const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 /* GET home page. */
 router.post('/register', function(req, res) {

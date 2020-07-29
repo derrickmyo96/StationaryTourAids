@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <title><%= title %></title>
+    <% availableTablet %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href='/stylesheets/style.css'/>
@@ -10,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Form Validation JavaScript -->
 
     <head>
         <nav class="navbar navbar-expand-lg">
@@ -29,7 +31,10 @@
                         <a class="nav-link" href="/registerTablet">Register for iPad</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/scanQR">Download JiAR</a>
+                            <a class="nav-link" href="/scanQR">Experience JiAR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/leaderboard">JiAR Leaderboard</a>
                         </li>
                     </ul>
                 </div>
@@ -37,61 +42,67 @@
         </nav>
     </head>
 
-    <body>
+    <body onload="checkAvailability()">
         <div class="background">
             <h1>Welcome to your first step in the JiAR experience!</h1>
-                        <h4>Fill in your details to borrow iPads from the nearby docking station</h4>
+            <h4>Fill in your details to borrow iPads from the nearby docking station</h4>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
                         <div class="card card-register my-5 w-100">
                             <div class="card-body">
-                                <form class="form-register" method="POST" action="/registerTablet/submit">
+                                <form class="form-register" method="POST" action="/registerTablet/submit" id="registerTablet" novalidate>
                                     <div class="form-row">
                                         <div class="form-label-group col-lg-6">
                                             <label for="borrowerFirstName">First Name:</label>
-                                            <input type="text" name="firstName" class="form-control" id="borrowerFirstName" required>
+                                            <input type="text" name="firstName" pattern="[a-zA-Z]{2,12}" class="form-control" id="borrowerFirstName" required>
+                                            <div class='invalid-feedback'>Please enter a valid first name.</div>
                                         </div>
 
                                         <div class="form-label-group col-lg-6">
                                             <label for="borrowerLastName">Last Name:</label>
-                                            <input type="text" name="lastName" class="form-control" id="borrowerLastName" required>
+                                            <input type="text" name="lastName" pattern="[a-zA-Z]{2,12}" class="form-control" id="borrowerLastName" required>
+                                            <div class='invalid-feedback'>Please enter a valid last name.</div>
                                         </div>
                                     </div>
 
                                     <div class="form-label-group">
                                         <label for="contactNumber">Contact Number:</label>
-                                        <input type="tel" name="contactNumber" class="form-control" id="contactNumber" aria-describeby="contactHelp" required>
-                                        <medium id="contactHelp" class="form-text text-muted">If your contact number is an international number, please include the country code, eg. +65</small>
+                                        <input type="tel" pattern="\d{8}$" name="contactNumber" class="form-control" id="contactNumber" aria-describeby="contactHelp" required>
+                                        <div class='invalid-feedback'>Please enter a valid contact number.</div>
                                     </div>
 
                                     <div class="form-label-group">
                                         <label for="borrowerEmail">Email Address:</label>
                                         <input type="email" name="email" class="form-control" id="borrowerEmail" placeholder="name@example.com" required>
+                                        <div class='invalid-feedback'>Please enter a valid email address.</div>
                                     </div>
 
                                     <div class="form-row">
                                         <div class="form-label-group col-lg-6">
-                                            <label for="visitorIdentity">Are you a Singapore Airlines (SIA) employee?</label>
+                                            <label for="checkVisitorStatus">Are you a Singapore Airlines (SIA) employee?</label>
                                             <div class="form-fluid">
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked>
-                                                    <label class="custom-control-label" for="customRadioInline1">Yes</label>
+                                                    <input type="radio" id="employee" name="siaEmployee" class="custom-control-input" value="Yes" checked>
+                                                    <label class="custom-control-label" for="employee">Yes</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                                                    <label class="custom-control-label" for="customRadioInline2">No</label>
+                                                    <input type="radio" id="notEmployee" name="siaEmployee" class="custom-control-input" value="No">
+                                                    <label class="custom-control-label" for="notEmployee">No</label>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-label-group col-lg-6">
-                                            <label for="ipadQuantity">Number of iPads</label>
+                                            <label for="ipadQuantity">Number of iPads | </label>
+                                            <label for="availableTablet" id="availableTablet">Available Tablets: </label>
+                                            <label for="availableNumber" id="availableNumber"><%= availableTablet %></label>
                                             <select name="numberOfIpads" class="custom-select">
-                                                <option selected>1</option>
-                                                <option value="1">2</option>
-                                                <option value="2">3</option>
-                                            </select>
+                                                <option id="noTablet">Sorry. There are currently no iPads available.</option>
+                                                <% for (var i = 1; i < availableTablet+1; i++) { %>
+                                                    <option id="<%= i %>"><%= i %></option>
+                                                <% } %>
+                                            </select>  
                                         </div>
                                     </div>
 
@@ -105,6 +116,7 @@
                                         <label class="form-check-label" for="termsAndConditionsModal">
                                             <a href="#" data-toggle="modal" data-target="#termsAndConditions">Terms and Conditions</a>
                                         </label>
+                                        <div class='invalid-feedback'>Please read the Terms and Conditions and check the box.</div>
                                     </div>
 
                                     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="termsAndConditonsModalTitle" aria-hidden="true" id="termsAndConditions">
@@ -123,7 +135,38 @@
                                             </div>
                                         </div>
                                     </div> 
-                                    <button type="submit" class="btn btn-primary">Request</button>
+                                    <button type="submit" id="RequestButton" class="btn btn-primary">Request</button>
+
+                                    <script type="text/javascript">  
+                                        (() =>  {
+                                            'use strict';
+                                            window.addEventListener('load', function() {
+                                                let form = document.getElementById('registerTablet');
+                                                form.addEventListener('submit', function (event) {
+                                                    if (form.checkValidity() === false) {
+                                                        event.preventDefault();
+                                                        event.stopPropagation();
+                                                    }
+                                                    form.classList.add('was-validated');
+                                                }, false);
+                                            }, false);
+                                        })();
+
+                                        function checkAvailability() {
+                                            const available = document.getElementById('availableNumber').innerHTML;
+                                            if (available == 0) {
+                                                document.getElementById('RequestButton').disabled = true;
+                                                for (var i=1; i<available+1; i++) {
+                                                document.getElementById(i).disabled = true;
+                                                }
+                                                document.getElementById('noTablet').selected = true;
+                                            }
+                                            else {
+                                                document.getElementById('noTablet').disabled = true;
+                                                document.getElementById('1').selected = true;
+                                            }
+                                        }
+                                    </script>
                                 </form>
                             </div>
                         </div>
